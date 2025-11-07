@@ -1,0 +1,17 @@
+nav {
+  background-color: transparent;
+  padding: 30px;
+  gap: 50px;
+  display: flex;
+  height: 10vh;
+  width: 100vw;
+  justify-content: flex-end;
+  top: 0%;
+  position: fixed;
+  z-index: 3;
+}
+
+a {
+  font-size: 22px;
+  color: rgb(255, 255, 255);
+}
