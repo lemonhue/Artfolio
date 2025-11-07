@@ -3,12 +3,12 @@
 
 @font-face {
   font-family : 'Weight';
-  src: url('./assets/Weight.otf') format('truetype');
+  src: url('./assets/Weight.ttf') format('truetype');
 }
 
 @font-face {
   font-family : 'TrashHand';
-  src: url('./assets/TrashHand.ttf') format('truetype');
+  src: url('./assets/TrashHand.TTF') format('truetype');
 }
 
 @font-face {
