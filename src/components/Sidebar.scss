@@ -1,7 +1,58 @@
 .Sidebar {
-  width: 20vw;
+  width: 100vw;
   height: 100vh;
   display: flex;
+  flex-direction: row;
+  background: transparent;
+  overflow: hidden;
+  justify-content: flex-start;
+}
+
+.Banner {
+  gap: 2%;
+  font-family: "Weight";
+  font-size: 7.5vw;
+  position: relative;
+  display: flex;
   background-color: transparent;
-  
+  color: #ff6a00;
+  transform: rotate(-90deg);
+}
+
+.stock-ticker-vertical {
+  opacity: 0.7;
+  z-index: 0;
+  width: 100%;
+  margin-left: -88%;
+  position: relative;
+  padding-block: 8px;
+  overflow: hidden;
+  user-select: none;
+  --gap: 150px;
+  display: flex;
+  gap: var(--gap);
+  transform: rotate(-90deg);
+}
+
+.stock-ticker-vertical ul {
+  font-family: "Weight";
+  font-size: 35px;
+  list-style: none;
+  flex-shrink: 0;
+  min-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+  animation: scroll 50s linear infinite;
+}
+
+.scroll-text {
+  color: white;
+}
+
+@keyframes scroll {
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
 }
