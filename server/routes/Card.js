@@ -72,6 +72,14 @@ router.delete("/:id", async (req, res) => {
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(404).json({ message: "No such card exists" });
   }
+
+  const card = await Card.findOneAndDelete({ _id: id });
+
+  if (!card) {
+    return res.status(404).json({ message: "No such card exists" });
+  }
+
+  return res.status(200).json(card);
 });
 
 module.exports = router;
