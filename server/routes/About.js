@@ -1,0 +1,82 @@
+const About = require("../models/About");
+const express = require("express");
+const mongoose = require("mongoose");
+const router = express.Router();
+
+router.get("/", async (req, res) => {
+  const cards = await Card.find({});
+  return res.status(200).json(users);
+});
+
+router.get("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(404).json({ message: "No such data exists!" });
+    }
+
+    const card = await About.findById(id);
+
+    if (!user) {
+      return res.status(404).json({ message: "No such data exists!" });
+    }
+
+    return res.status(200).json(card);
+  } catch (error) {
+    console.log(error);
+    return res.status(400).json({ message: error });
+  }
+});
+
+router.post("/", async (req, res) => {
+  try {
+    const { username, bio } = req.body;
+    if (!username || !bio ) {
+      return res
+        .status(400)
+        .json({ message: "Missing required fields for bio." });
+    }
+    const newAbout = new About({
+      username: username,
+      bio: bio
+    });
+    await newAbout.save();
+    res.status(200).json({ message: "New bio created successfully." });
+  } catch (error) {
+    console.log(error);
+    return res.status(400).json({ message: error });
+  }
+});
+
+router.patch("/:id", async (req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({ message: "No such bio exists" });
+  }
+
+  const user = await About.findByIdAndUpdate(
+    { _id: id },
+    { ...req.body },
+    { new: true }
+  );
+});
+
+router.delete("/:id", async (req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({ message: "No such bio exists" });
+  }
+
+  const about = await About.findOneAndDelete({ _id: id });
+
+  if (!about) {
+    return res.status(404).json({ message: "No such bio exists" });
+  }
+
+  return res.status(200).json(about);
+});
+
+module.exports = router;
