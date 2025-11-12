@@ -6,9 +6,10 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import Projects from "./pages/Projects.jsx";
 import PrivateRoutes from "./utilities/PrivateRoute.jsx";
-import AdminHome from "./pagegs/admin/Home.jsx";
-import AdminProjects from "./pagegs/admin/Projects.jsx";
-import AdminAbout from "./pagegs/admin/About.jsx";
+import AdminHome from "./pages/admin/Home.jsx";
+import AdminProjects from "./pages/admin/Projects.jsx";
+import AdminAbout from "./pages/admin/About.jsx";
+import Login from "./pages/Login.jsx";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route index element={<Home />} />
         <Route path="/Projects" element={<Projects />} />
+        <Route path="/Login" element={<Login />} />
         <Route element={<PrivateRoutes />}>
           <Route path="/AdminHome" element={<AdminHome />} />
           <Route path="/AdminProjects" element={<AdminProjects />} />
