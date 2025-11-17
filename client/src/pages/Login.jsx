@@ -1,13 +1,28 @@
 import "./Login.scss";
+import { useState } from "react";
 import Navbar from "../components/navbar.jsx";
 import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
 
 function Login() {
-  const [email, setEmail] = UseState(null);
-  const [password, setPassword] = UseState(null);
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
 
-  handleSubmit = (event) => {};
+  handleSubmit = async (event) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        "/",
+        JSON.stringify({ email, password }),
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
+      );
+    } catch (error) {
+      console.error("Error during login:", error);
+    }
+  };
 
   return (
     <div className="Container">
