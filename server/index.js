@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -9,7 +11,8 @@ const CategoryModel = require("./models/Category");
 const SubcategoryModel = require("./models/Subcategory");
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT;
+const DB_Host = process.env.DB_HOST;
 
 app.use(express.json());
 app.use(cors());
