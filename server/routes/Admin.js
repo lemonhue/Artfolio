@@ -34,14 +34,14 @@ router.post("/", async (req, res) => {
         .status(400)
         .json({ message: "Missing required fields for user." });
     }
-    const newUser = new User({
+    const newAdmin = new Admin({
       firstName: firstName,
       lastName: lastName,
       userName: userName,
       email: email,
       password: password,
     });
-    await newUser.save();
+    await newAdmin.save();
     res.status(200).json({ message: "New user created successfully." });
   } catch (error) {
     console.log(error);
