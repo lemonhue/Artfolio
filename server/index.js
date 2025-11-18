@@ -19,9 +19,9 @@ app.use(cors());
 
 const router = express.Router();
 
-mongoose.connect("mongodb://localhost:27017/card");
+mongoose.connect(DB_Host);
 
-app.listen(3001, () => {
+app.listen(5173, () => {
   console.log("server is running");
 });
 
