@@ -10,11 +10,4 @@ function hashPassword(password) {
   return { salt, hash };
 }
 
-function verifyPassword(password, salt, hash) {
-  const hashedPassword = crypto
-    .scryptSync(password, salt, 64, { N: 16384, r: 8, p: 1 })
-    .toString("hex");
-  return hashedPassword === hash;
-}
-
-module.exports = { hashPassword, verifyPassword };
+module.exports = { hashPassword };
