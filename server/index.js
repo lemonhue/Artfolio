@@ -7,7 +7,7 @@ const cors = require("cors");
 const app = express();
 const PORT = process.env.PORT;
 const DB_Host = process.env.DB_HOST;
-const adminRoutes = require("./routes/Admin");
+const userRoutes = require("./routes/User");
 const cardRoutes = require("./routes/Card");
 const categoryRoutes = require("./routes/Category");
 const subcategoryRoutes = require("./routes/Subcategory");
@@ -30,7 +30,7 @@ app.listen(PORT, () => {
   console.log("server is running");
 });
 
-app.use("/admin", adminRoutes);
+app.use("/user", userRoutes);
 app.use("/card", cardRoutes);
 app.use("/about", cardRoutes);
 app.use("/category", cardRoutes);
