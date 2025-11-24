@@ -26,33 +26,43 @@ function Projects() {
   }, []);
 
   return (
-    <div className="Container">
+    <>
       <Navbar />
-      <Sidebar />
-      <div className="Projects-List">
-        <div className="Cards-List">
-          <ul>
-            {cards.map((card) => (
-              <li
-                key={card.id}
-                onMouseEnter={() => setHoveredCard(card)}
-                onMouseLeave={() => setHoveredCard(null)}
-              >
-                {card.image}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="Card-Info">
-          {hoveredCard && (
-            <>
-              <h2>{hoveredCard.title}</h2>
-              <p>{hoveredCard.description}</p>
-            </>
-          )}
+      <div className="Container">
+        <Sidebar />
+        <div className="Projects-List-Container">
+          <div className="Cards-List-Container">
+            <ul>
+              {(!cards || cards.length === 0) && (
+                <div className="Cards-Placeholder"> No Projects </div>
+              )}
+
+              {cards &&
+                cards.map((card) => (
+                  <li
+                    key={card.id}
+                    onMouseEnter={() => setHoveredCard(card)}
+                    onMouseLeave={() => setHoveredCard(null)}
+                  >
+                    <img src={card.image} />
+                  </li>
+                ))}
+            </ul>
+          </div>
+          <div className="Bottom-Section">
+            <div className="Cards-Categories-Container"></div>
+            <div className="Card-Info-Container">
+              {hoveredCard && (
+                <>
+                  <h2>{hoveredCard.title}</h2>
+                  <p>{hoveredCard.description}</p>
+                </>
+              )}
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
