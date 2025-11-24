@@ -1,14 +1,17 @@
 import "./Sidebar.scss";
 
 function Sidebar() {
+
+  
   return (
-    <div className="Sidebar">
-        <div className="Banner">
+    <div className="Main-Sidebar-Container">
+      <div className="Sidebar-Container">
+        <div className="Sidebar-Banner">
           <h1>KKGURREN</h1>
           <h1>KKGURREN</h1>
         </div>
 
-        <div className="stock-ticker-vertical">
+        {/* <div className="Sidebar-stock-ticker-vertical">
           <ul aria-hidden="true">
             <li>
               <span className="scroll-text"> I Draw</span>F
@@ -62,6 +65,7 @@ function Sidebar() {
               <span className="scroll-text"> I Draw</span>
             </li>
           </ul>
+        </div> */}
       </div>
     </div>
   );
