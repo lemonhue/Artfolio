@@ -3,10 +3,13 @@ import AdminNavbar from "../../components/admin/AdminNavbar.jsx";
 import Sidebar from "../../components/Sidebar.jsx";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { IoIosAddCircleOutline } from "react-icons/io";
 
 function AdminProjects() {
   const [cards, setCards] = useState([]);
-  const [hoveredCard, setHoveredCard] = useState();
+  const [hoveredCard, setHoveredCard] = useState(null);
+  const [isOpen, setIsOpen] = useState(null);
+  const [onClose, setOnClose] = useState(null);
 
   const fetchCards = async () => {
     try {
@@ -34,7 +37,11 @@ function AdminProjects() {
           <div className="Cards-List-Container">
             <ul>
               {(!cards || cards.length === 0) && (
-                <div className="Cards-Placeholder"> </div>
+                <div className="Cards-Placeholder">
+                  <button>
+                    <IoIosAddCircleOutline />
+                  </button>
+                </div>
               )}
 
               {cards &&
@@ -52,6 +59,12 @@ function AdminProjects() {
           <div className="Bottom-Section">
             <div className="Cards-Categories-Container"></div>
             <div className="Card-Info-Container">
+              {(!hoveredCard || hoveredCard === null) && (
+                <>
+                  <h2> No Projects</h2>
+                </>
+              )}
+
               {hoveredCard && (
                 <>
                   <h2>{hoveredCard.title}</h2>
