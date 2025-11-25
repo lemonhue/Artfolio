@@ -1,10 +1,10 @@
 import "./Home.scss";
-import Navbar from "../../components/navbar.jsx";
+import AdminNavbar from "../../components/admin/AdminNavbar";
 
 function Home() {
   return (
     <div className="Container">
-      <Navbar />
+      <AdminNavbar />
       <div class="stock-ticker">
         <ul aria-hidden="true">
           <li>
