@@ -1,10 +1,10 @@
-import "./Projects.scss";
-import AdminNavbar from "../../components/admin/AdminNavbar";
+import "./AdminProjects.scss";
+import AdminNavbar from "../../components/admin/AdminNavbar.jsx";
 import Sidebar from "../../components/Sidebar.jsx";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-function Projects() {
+function AdminProjects() {
   const [cards, setCards] = useState([]);
   const [hoveredCard, setHoveredCard] = useState();
 
@@ -34,7 +34,7 @@ function Projects() {
           <div className="Cards-List-Container">
             <ul>
               {(!cards || cards.length === 0) && (
-                <div className="Cards-Placeholder"> No Projects </div>
+                <div className="Cards-Placeholder"> </div>
               )}
 
               {cards &&
@@ -66,4 +66,4 @@ function Projects() {
   );
 }
 
-export default Projects;
+export default AdminProjects;
