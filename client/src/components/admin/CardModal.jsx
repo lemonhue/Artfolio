@@ -1,11 +1,13 @@
 import "./CardModal.scss";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import ReactDom from "react-dom";
 
-function CreateCardModal({ isOpen, onClose }) {
+function CreateCardModal({ children, open, onClose }) {
+  if (!open) return null;
+
   const [isValid, setIsValid] = useState(false);
   const [imageFile, setImageFile] = useState(null);
-
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -37,10 +39,10 @@ function CreateCardModal({ isOpen, onClose }) {
 
     setIsValid(true);
 
-    const FormData = new FormData();
-    formData.append("image", imageFile);
-    formData.append("title", formData.title);
-    formData.append("description", formData.description);
+    const fd = new FormData();
+    fd.append("image", imageFile);
+    fd.append("title", formData.title);
+    fd.append("description", formData.description);
 
     try {
       const response = await axios.post("/card", formData, {
@@ -58,41 +60,46 @@ function CreateCardModal({ isOpen, onClose }) {
     }
   };
 
-  return (
-    <div className="container-modal">
-      <form onSubmit={handleSubmit}>
-        <div className="input-group-image">
-          <label>
-            <input
-              name="image"
-              type="file"
-              accept="image/*"
-              onChange={handleInputChange}
-            />
-          </label>
-        </div>
+  return ReactDom.createPortal(
+    <>
+      <div className="overlay"> </div>
+      <div className="container-modal">
+        <button onClick={onClose}> </button>
+        <form onSubmit={handleSubmit}>
+          <div className="input-group-image">
+            <label>
+              <input
+                name="image"
+                type="file"
+                accept="image/*"
+                onChange={handleInputChange}
+              />
+            </label>
+          </div>
 
-        <div className="input-group-text1">
-          <label>
-            <input name="title" type="text" onChange={handleInputChange} />
-          </label>
-        </div>
+          <div className="input-group-text1">
+            <label>
+              <input name="title" type="text" onChange={handleInputChange} />
+            </label>
+          </div>
 
-        <div className="input-group-text2">
-          <label>
-            <input
-              name="description"
-              type="text"
-              onChange={handleInputChange}
-            />
-          </label>
-        </div>
+          <div className="input-group-text2">
+            <label>
+              <input
+                name="description"
+                type="text"
+                onChange={handleInputChange}
+              />
+            </label>
+          </div>
 
-        <div>
-          <button type="submit">submit</button>
-        </div>
-      </form>
-    </div>
+          <div>
+            <button type="submit">submit</button>
+          </div>
+        </form>
+      </div>
+    </>,
+    document.getElementById("portal")
   );
 }
 
