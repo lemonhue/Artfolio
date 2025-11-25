@@ -4,6 +4,7 @@
   width: 100vw;
   background-color: rgb(19, 19, 19);
   flex-direction: row;
+  align-items: center;
   justify-content: center;
 }
 
@@ -43,7 +44,7 @@ form {
   label {
     font-family: "Weight";
     font-size: 20px;
-    color: #ff6a00;
+    color: white;
     min-width: 70px;
     max-width: 70px;
   }
@@ -53,7 +54,7 @@ form {
   position: relative;
   font-family: "Weight";
   font-size: 80px;
-  color: #ff6a00;
+  color: white;
   border-radius: 50%;
   border: 5px solid #ff6a00;
   width: 400px;

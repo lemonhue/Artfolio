@@ -32,13 +32,14 @@
   }
 
   .Cards-Placeholder {
+    font-family: "Weight";
     color: white;
     display: flex;
     width: 100%;
     height: 100%;
     justify-content: center;
     align-items: center;
-    // background-color: white;
+    font-size: 50px;
   }
 
   li {
@@ -63,7 +64,18 @@
     border-top: 1px solid rgb(221, 117, 19);
     width: 50%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 
-    background-color: #252525;
+    h2 {
+      color: white;
+    }
+
+    p {
+      color: orange;
+    }
+
+    // background-color: #252525;
   }
 }
