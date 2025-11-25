@@ -2,6 +2,7 @@ import "./CardModal.scss";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import ReactDom from "react-dom";
+import { IoMdCloseCircleOutline } from "react-icons/io";
 
 function CreateCardModal({ children, open, onClose }) {
   if (!open) return null;
@@ -62,9 +63,13 @@ function CreateCardModal({ children, open, onClose }) {
 
   return ReactDom.createPortal(
     <>
-      <div className="overlay"> </div>
+      <div className="overlay" />
       <div className="container-modal">
-        <button onClick={onClose}> </button>
+        <div className="container-close-button">
+          <button onClick={onClose}>
+            <IoMdCloseCircleOutline />
+          </button>
+        </div>
         <form onSubmit={handleSubmit}>
           <div className="input-group-image">
             <label>
@@ -77,23 +82,23 @@ function CreateCardModal({ children, open, onClose }) {
             </label>
           </div>
 
-          <div className="input-group-text1">
+          <div className="input-group-title">
             <label>
               <input name="title" type="text" onChange={handleInputChange} />
             </label>
           </div>
 
-          <div className="input-group-text2">
+          <div className="input-group-description">
             <label>
               <input
+                className="description"
                 name="description"
                 type="text"
                 onChange={handleInputChange}
               />
             </label>
           </div>
-
-          <div>
+          <div className="Container-submit">
             <button type="submit">submit</button>
           </div>
         </form>
