@@ -14,7 +14,7 @@ function Login() {
   const handleSubmit = async (event) => {
     try {
       const response = await axios.get(
-        "/admin",
+        "http://localhost:5000/user",
         { email, password },
         {
           headers: { "Content-Type": "application/json" },
@@ -23,6 +23,7 @@ function Login() {
       );
       if (response.status === 200 || response.status === 201) {
         console.log("Succesfully logged in!");
+        navigate("/admin/Home");
       }
     } catch (error) {
       console.error("Error during login:", error);
@@ -32,35 +33,36 @@ function Login() {
   return (
     <div className="Main-Container">
       <div className="Containerr">
-      <div className="Login-container">
-        <form>
-          <div className="input-group">
-            <label>Email: </label>
+        <div className="Login-container">
+          <form>
+            <div className="input-group">
+              <label>Email: </label>
 
-            <input type="text" name="email" />
+              <input type="text" name="email" />
+            </div>
+
+            <div className="input-group">
+              <label> Password: </label>
+
+              <input type="text" name="password"></input>
+            </div>
+          </form>
+          <div className="login-button-container">
+            <button className="login-button" onClick={handleSubmit}>Login</button>
           </div>
-
-          <div className="input-group">
-            <label> Password: </label>
-
-            <input type="text" name="password"></input>
-          </div>
-          <button type="submit" onClick={handleSubmit} />
-        </form>
-        <div className="login-button-container">
-          <button className="login-button">Login</button>
+        </div>
+        <div className="Google-container">
+          <GoogleLogin
+            onSuccess={(credentialsResponse) =>
+              console.log(credentialsResponse)
+            }
+            onError={() => console.log("Login failed")}
+          />
+        </div>
+        <div className="Signin-container">
+          <button className="register-button">Create Account</button>
         </div>
       </div>
-      <div className="Google-container">
-        <GoogleLogin
-          onSuccess={(credentialsResponse) => console.log(credentialsResponse)}
-          onError={() => console.log("Login failed")}
-        />
-      </div>
-      <div className="Signin-container">
-        <button className="register-button">Create Account</button>
-      </div>
-    </div>
     </div>
   );
 }
