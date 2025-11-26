@@ -46,12 +46,16 @@ function CreateCardModal({ children, open, onClose }) {
     fd.append("description", formData.description);
 
     try {
-      const response = await axios.post("/card", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-        withCredentials: true,
-      });
+      const response = await axios.post(
+        "http://localhost:5000/card",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+          withCredentials: true,
+        }
+      );
       if (response.status === 200 || response.status === 201) {
         console.log("Card succesfully added!");
         setIsValid(false);
@@ -65,41 +69,41 @@ function CreateCardModal({ children, open, onClose }) {
     <>
       <div className="overlay" />
       <div className="container-modal">
-        <div className="container-close-button">
-          <button onClick={onClose}>
-            <IoMdCloseCircleOutline />
-          </button>
-        </div>
         <form onSubmit={handleSubmit}>
           <div className="input-group-image">
-            <label>
-              <input
-                name="image"
-                type="file"
-                accept="image/*"
-                onChange={handleInputChange}
-              />
-            </label>
+            <input
+              className="input-image"
+              name="image"
+              type="file"
+              accept="image/*"
+              onChange={handleInputChange}
+            />
           </div>
 
-          <div className="input-group-title">
-            <label>
-              <input name="title" type="text" onChange={handleInputChange} />
-            </label>
-          </div>
+          <div className="section2">
+            {/* <div className="input-group-title"> */}
+            <input
+              className="title"
+              name="title"
+              type="text"
+              onChange={handleInputChange}
+            />
+            {/* </div> */}
 
-          <div className="input-group-description">
-            <label>
-              <input
-                className="description"
-                name="description"
-                type="text"
-                onChange={handleInputChange}
-              />
-            </label>
-          </div>
-          <div className="Container-submit">
-            <button type="submit">submit</button>
+            {/* <div className="input-group-description"> */}
+            <input
+              className="description"
+              name="description"
+              type="text"
+              onChange={handleInputChange}
+            />
+            {/* </div> */}
+            <div className="Container-submit">
+              <button>cancel</button>
+              <button type="submit" onClick={handleSubmit}>
+                submit
+              </button>
+            </div>
           </div>
         </form>
       </div>
