@@ -2,10 +2,11 @@ const Card = require("../models/Card");
 const express = require("express");
 const mongoose = require("mongoose");
 const router = express.Router();
+const upload = require("../util/multerConfig");
 
 router.get("/", async (req, res) => {
   const cards = await Card.find({});
-  return res.status(200).json(users);
+  return res.status(200).json(cards);
 });
 
 router.get("/:id", async (req, res) => {
@@ -29,26 +30,42 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
+// router.post("/upload", async (req, res) => {
+//   try {
+//     // const { image, category_id, subcategory_id, title, description } = req.body;
+//     const { image, title, description } = req.body;
+
+//     if (!image || !title || !description) {
+//       return res
+//         .status(400)
+//         .json({ message: "Missing required fields for card." });
+//     }
+//     const newCard = new Card({
+//       image: image,
+//       // category_id: category_id,
+//       // subcategory_id: subcategory_id,
+//       title: title,
+//       description: description,
+//     });
+//     await newCard.save();
+//     res.status(200).json({ message: "New card created successfully." });
+//   } catch (error) {
+//     console.log(error);
+//     return res.status(400).json({ message: error });
+//   }
+// });
+
+router.post("/", upload.single("image"), async function (req, res) {
   try {
-    const { image, category_id, subcategory_id, title, description } = req.body;
-    if (!image || !category_id || !subcategory_id || !title || !description) {
-      return res
-        .status(400)
-        .json({ message: "Missing required fields for card." });
-    }
     const newCard = new Card({
-      image: image,
-      category_id: category_id,
-      subcategory_id: subcategory_id,
-      title: title,
-      description: description,
+      image: req.file.filename,
+      title: req.body.title,
+      description: req.body.description,
     });
     await newCard.save();
-    res.status(200).json({ message: "New card created successfully." });
+    res.status(201).json(newCard);
   } catch (error) {
-    console.log(error);
-    return res.status(400).json({ message: error });
+    res.status(500).json({ error: error.message });
   }
 });
 
