@@ -40,7 +40,8 @@ router.post("/", async (req, res) => {
       lastName: lastName,
       userName: userName,
       email: email,
-      password: hashPassword(password),
+      password: password,
+      // password: hashPassword(password),
     });
     await newUser.save();
     res.status(201).json({ message: "New user created successfully." });
@@ -49,5 +50,8 @@ router.post("/", async (req, res) => {
     return res.status(400).json({ message: error.mmessage });
   }
 });
+
+
+
 
 module.exports = router;
