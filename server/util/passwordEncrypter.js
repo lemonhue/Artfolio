@@ -10,4 +10,4 @@ function hashPassword(password) {
   return { salt, hash };
 }
 
-module.exports = { hashPassword };
+module.exports = hashPassword;
