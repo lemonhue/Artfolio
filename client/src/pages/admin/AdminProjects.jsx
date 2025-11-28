@@ -4,16 +4,23 @@ import Sidebar from "../../components/Sidebar.jsx";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { IoIosAddCircleOutline } from "react-icons/io";
+import Modal from "../../components/admin/CardModal";
+import Pagination from "../../components/Pagination.jsx";
 
 function AdminProjects() {
+  const [isOpen, setIsOpen] = useState(false);
   const [cards, setCards] = useState([]);
   const [hoveredCard, setHoveredCard] = useState(null);
-  const [isOpen, setIsOpen] = useState(null);
-  const [onClose, setOnClose] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(7);
+  const lastPostIndex = currentPage * postsPerPage;
+  const firstPostIndex = lastPostIndex - postsPerPage;
+  // const currentPosts = cards.slice(firstPostIndex, lastPostIndex);
+  const currentPosts = cards.slice(firstPostIndex, lastPostIndex);
 
   const fetchCards = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/card");
+      const response = await axios.get(`http://localhost:5000/card`);
 
       if (response.status === 200) {
         setCards(response.data);
@@ -31,21 +38,23 @@ function AdminProjects() {
   return (
     <>
       <AdminNavbar />
-      <div className="Container">
+      <div className="Container-Admin-Projects">
         <Sidebar />
         <div className="Projects-List-Container">
           <div className="Cards-List-Container">
             <ul>
-              {(!cards || cards.length === 0) && (
-                <div className="Cards-Placeholder">
-                  <button>
-                    <IoIosAddCircleOutline />
-                  </button>
-                </div>
-              )}
+              <div className="Cards-Placeholder">
+                <button onClick={() => setIsOpen(true)}>
+                  <IoIosAddCircleOutline />
+                </button>
+
+                <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+                  Upload Project
+                </Modal>
+              </div>
 
               {cards &&
-                cards.map((card) => (
+                currentPosts.map((card) => (
                   <li
                     key={card.id}
                     onMouseEnter={() => setHoveredCard(card)}
@@ -72,6 +81,14 @@ function AdminProjects() {
                 </>
               )}
             </div>
+          </div>
+          <div className="container-pagination">
+            <Pagination
+              totalPosts={cards.length}
+              postsPerPage={postsPerPage}
+              setCurrentPage={setCurrentPage}
+              currentPage={currentPage}
+            />
           </div>
         </div>
       </div>
