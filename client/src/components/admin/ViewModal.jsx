@@ -19,9 +19,9 @@ function ViewModal({ card, open, onClose }) {
 
   return ReactDom.createPortal(
     <>
-      <div className="overlay" />
-      <div className="container-modal">
-        <div className="container view">
+      <div className="overlay"/>
+      <div className="container-view-modal">
+        <div className="container-view">
           <div className="container-delete-button">
             <button className="delete-button" onClick={handleDelete}>
               Delete
