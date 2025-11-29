@@ -6,16 +6,18 @@ import axios from "axios";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import Modal from "../../components/admin/CardModal";
 import Pagination from "../../components/Pagination.jsx";
+import ViewModal from "../../components/admin/ViewModal";
 
 function AdminProjects() {
   const [isOpen, setIsOpen] = useState(false);
   const [cards, setCards] = useState([]);
   const [hoveredCard, setHoveredCard] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(7);
+  const [postsPerPage, setPostsPerPage] = useState(10);
+  const [isViewOpen, setIsViewOpen] = useState(false);
+
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
-  // const currentPosts = cards.slice(firstPostIndex, lastPostIndex);
   const currentPosts = cards.slice(firstPostIndex, lastPostIndex);
 
   const fetchCards = async () => {
@@ -43,26 +45,28 @@ function AdminProjects() {
         <div className="Projects-List-Container">
           <div className="Cards-List-Container">
             <ul>
-              <div className="Cards-Placeholder">
-                <button onClick={() => setIsOpen(true)}>
-                  <IoIosAddCircleOutline />
-                </button>
-
-                <Modal open={isOpen} onClose={() => setIsOpen(false)}>
-                  Upload Project
-                </Modal>
-              </div>
-
               {cards &&
-                currentPosts.map((card) => (
+                currentPosts.map((card, index) => (
                   <li
                     key={card.id}
                     onMouseEnter={() => setHoveredCard(card)}
                     onMouseLeave={() => setHoveredCard(null)}
                   >
-                    <img src={card.image} />
+                    <img src={card.image} onClick={() => setIsViewOpen(true)} />
+                    <ViewModal
+                      card={card}
+                      open={isViewOpen}
+                      onClose={() => setIsViewOpen(false)}
+                    />
                   </li>
                 ))}
+              <div className="Cards-Placeholder">
+                <button onClick={() => setIsOpen(true)}>
+                  <IoIosAddCircleOutline />
+                </button>
+
+                <Modal open={isOpen} setIsOpen={setIsOpen} onClose={() => setIsOpen(false)} />
+              </div>
             </ul>
           </div>
           <div className="Bottom-Section">
