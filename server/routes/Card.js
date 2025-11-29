@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const router = express.Router();
 const upload = require("../middleware/multer");
 const { uploadImage } = require("../util/cloudinaryConfig");
+const fs = require("fs");
+
 router.get("/", async (req, res) => {
   const cards = await Card.find({});
   return res.status(200).json(cards);
@@ -38,6 +40,8 @@ router.post("/", upload.single("image"), async (req, res) => {
     }
 
     const result = await uploadImage(req.file.path);
+    fs.unlink(req.file.path, () => {});
+    
     const newCard = new Card({
       // image: req.file.filename,
 
