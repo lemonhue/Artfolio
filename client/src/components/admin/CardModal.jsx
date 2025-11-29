@@ -12,7 +12,6 @@ function CreateCardModal({ children, open, onClose }) {
   const [formData, setFormData] = useState({
     title: "",
     description: "",
-    image: null,
   });
 
   const handleInputChange = (e) => {
@@ -44,18 +43,15 @@ function CreateCardModal({ children, open, onClose }) {
     fd.append("image", imageFile);
     fd.append("title", formData.title);
     fd.append("description", formData.description);
+    console.log(fd);
 
     try {
-      const response = await axios.post(
-        "http://localhost:5000/card",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-          withCredentials: true,
-        }
-      );
+      const response = await axios.post("http://localhost:5000/card", fd, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+        withCredentials: true,
+      });
       if (response.status === 200 || response.status === 201) {
         console.log("Card succesfully added!");
         setIsValid(false);
