@@ -39,9 +39,9 @@ router.post("/", upload.single("image"), async (req, res) => {
 
     const result = await uploadImage(req.file.path);
     const newCard = new Card({
-      image: req.file.filename,
+      // image: req.file.filename,
 
-      // image: result.secure_url,
+      image: result.secure_url,
       title: req.body.title,
       description: req.body.description,
     });
