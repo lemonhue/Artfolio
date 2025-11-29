@@ -95,7 +95,7 @@ function CreateCardModal({ children, open, onClose }) {
             />
             {/* </div> */}
             <div className="Container-submit">
-              <button>cancel</button>
+              <button onClick={onClose}>cancel</button>
               <button type="submit" onClick={handleSubmit}>
                 submit
               </button>
