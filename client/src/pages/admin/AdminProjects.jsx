@@ -65,7 +65,7 @@ function AdminProjects() {
                   <IoIosAddCircleOutline />
                 </button>
 
-                <Modal open={isOpen} setIsOpen={setIsOpen} onClose={() => setIsOpen(false)} />
+                <Modal open={isOpen} onClose={() => setIsOpen(false)} />
               </div>
             </ul>
           </div>
