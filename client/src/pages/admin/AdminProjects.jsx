@@ -49,10 +49,10 @@ function AdminProjects() {
               {cards &&
                 currentPosts.map((card, index) => (
                   <li
-                    className="flex-item"
                     key={card.id}
                     onMouseEnter={() => setHoveredCard(card)}
                     onMouseLeave={() => setHoveredCard(null)}
+                    className={index === 0 && "featured"}
                   >
                     <img
                       src={card.image}
