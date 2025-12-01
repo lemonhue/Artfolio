@@ -23,7 +23,6 @@
     }
 
     .Cards-List-Container {
-      // background-color: #303030;
       height: 75%;
       width: 100%;
 
@@ -52,17 +51,20 @@
       }
 
       li {
-        flex: 0 0 150px; // default width
+        display: flex;
+        flex-direction: row;
+        flex-basis: 120px;
         flex-shrink: 1;
+        flex-grow: 200px;
         height: 650px;
         background: white;
         overflow: hidden;
         width: 10%;
-        max-width: 150px;
+        max-width: 1200px;
         height: 650px;
         min-height: 650px;
         max-height: 650px;
-        transition: transform 0.2s;
+        transition: flex-grow 0.5s;
 
         img {
           height: 100%;
@@ -71,9 +73,8 @@
         }
 
         &:hover {
-          height: 100%;
-          width: 800px;
-          transform: scale(1.1);
+          flex-grow: 3;
+          transition: flex-grow 1s;
         }
       }
 
@@ -83,6 +84,8 @@
         gap: 10px;
         display: flex;
         flex-direction: row;
+        justify-content: center;
+
         mask-image: linear-gradient(
           to bottom,
           black 0%,
@@ -121,7 +124,6 @@
         p {
           color: orange;
         }
-
       }
     }
     .container-pagination {

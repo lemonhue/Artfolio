@@ -49,6 +49,7 @@ function AdminProjects() {
               {cards &&
                 currentPosts.map((card, index) => (
                   <li
+                    className="flex-item"
                     key={card.id}
                     onMouseEnter={() => setHoveredCard(card)}
                     onMouseLeave={() => setHoveredCard(null)}
