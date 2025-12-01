@@ -15,6 +15,7 @@ function AdminProjects() {
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(9);
   const [isViewOpen, setIsViewOpen] = useState(false);
+  const [selectedCard, setSelectedCard] = useState(null);
 
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
@@ -52,11 +53,12 @@ function AdminProjects() {
                     onMouseEnter={() => setHoveredCard(card)}
                     onMouseLeave={() => setHoveredCard(null)}
                   >
-                    <img src={card.image} onClick={() => setIsViewOpen(true)} />
-                    <ViewModal
-                      card={card}
-                      open={isViewOpen}
-                      onClose={() => setIsViewOpen(false)}
+                    <img
+                      src={card.image}
+                      onClick={() => {
+                        setSelectedCard(card);
+                        setIsViewOpen(true);
+                      }}
                     />
                   </li>
                 ))}
@@ -66,6 +68,11 @@ function AdminProjects() {
                 </button>
 
                 <Modal open={isOpen} onClose={() => setIsOpen(false)} />
+                <ViewModal
+                  card={selectedCard}
+                  open={isViewOpen}
+                  onClose={() => setIsViewOpen(false)}
+                />
               </div>
             </ul>
           </div>
