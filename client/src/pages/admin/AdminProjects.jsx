@@ -13,7 +13,7 @@ function AdminProjects() {
   const [cards, setCards] = useState([]);
   const [hoveredCard, setHoveredCard] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(10);
+  const [postsPerPage, setPostsPerPage] = useState(9);
   const [isViewOpen, setIsViewOpen] = useState(false);
 
   const lastPostIndex = currentPage * postsPerPage;
