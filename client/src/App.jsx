@@ -7,9 +7,10 @@ import Home from "./pages/Home.jsx";
 import Projects from "./pages/Projects.jsx";
 import PrivateRoutes from "./utilities/PrivateRoute.jsx";
 import AdminHome from "./pages/admin/Home.jsx";
-import AdminProjects from "./pages/admin/Projects.jsx";
+import AdminProjects from "./pages/admin/AdminProjects.jsx";
 import AdminAbout from "./pages/admin/About.jsx";
 import Login from "./pages/Login.jsx";
+import Register from "./pages/Register.jsx";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="/Projects" element={<Projects />} />
         <Route path="/Login" element={<Login />} />
+        <Route path="/Register" element={<Register />} />
         <Route element={<PrivateRoutes />}>
           <Route path="/AdminHome" element={<AdminHome />} />
           <Route path="/AdminProjects" element={<AdminProjects />} />
