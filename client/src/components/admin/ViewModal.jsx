@@ -1,6 +1,7 @@
 import "./ViewModal.scss";
 import ReactDom from "react-dom";
 import axios from "axios";
+import { FaTrash } from "react-icons/fa";
 
 function ViewModal({ card, open, onClose }) {
   if (!open) return null;
@@ -33,7 +34,7 @@ function ViewModal({ card, open, onClose }) {
         <div className="container-buttons">
           <div className="container-delete-button">
             <button className="delete-button" onClick={handleDelete}>
-              Delete
+              <FaTrash className="icon-color" />
             </button>
           </div>
         </div>
