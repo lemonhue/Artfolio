@@ -13,20 +13,16 @@ function Login() {
 
   const handleSubmit = async (event) => {
     try {
-      const response = await axios.get(
-        "http://localhost:5000/user",
-        { email, password },
-        {
-          headers: { "Content-Type": "application/json" },
-          withCredentials: true,
-        }
-      );
+      const response = await axios.post("http://localhost:5000/user/login", {
+        email,
+        password,
+      });
       if (response.status === 200 || response.status === 201) {
         console.log("Succesfully logged in!");
-        navigate("/admin/Home");
+        navigate("/AdminHome");
       }
     } catch (error) {
-      console.error("Error during login:", error);
+      console.error("Error during login:", error.response.data.message);
     }
   };
 
@@ -38,17 +34,29 @@ function Login() {
             <div className="input-group">
               <label>Email: </label>
 
-              <input type="text" name="email" />
+              <input
+                type="text"
+                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </div>
 
             <div className="input-group">
               <label> Password: </label>
 
-              <input type="text" name="password"></input>
+              <input
+                type="text"
+                name="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              ></input>
             </div>
           </form>
           <div className="login-button-container">
-            <button className="login-button" onClick={handleSubmit}>Login</button>
+            <button className="login-button" onClick={handleSubmit}>
+              Login
+            </button>
           </div>
         </div>
         <div className="Google-container">
