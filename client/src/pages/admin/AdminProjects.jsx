@@ -13,7 +13,7 @@ function AdminProjects() {
   const [cards, setCards] = useState([]);
   const [hoveredCard, setHoveredCard] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(9);
+  const [postsPerPage, setPostsPerPage] = useState(11);
   const [isViewOpen, setIsViewOpen] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
 
@@ -52,7 +52,7 @@ function AdminProjects() {
                     key={card.id}
                     onMouseEnter={() => setHoveredCard(card)}
                     onMouseLeave={() => setHoveredCard(null)}
-                    className={index === 0 && "featured"}
+                    // className={index === 0 && "featured"}
                   >
                     <img
                       src={card.image}
@@ -67,14 +67,13 @@ function AdminProjects() {
                 <button onClick={() => setIsOpen(true)}>
                   <IoIosAddCircleOutline />
                 </button>
-
-                <Modal open={isOpen} onClose={() => setIsOpen(false)} />
-                <ViewModal
-                  card={selectedCard}
-                  open={isViewOpen}
-                  onClose={() => setIsViewOpen(false)}
-                />
               </div>
+              <Modal open={isOpen} onClose={() => setIsOpen(false)} />
+              <ViewModal
+                card={selectedCard}
+                open={isViewOpen}
+                onClose={() => setIsViewOpen(false)}
+              />
             </ul>
           </div>
           <div className="Bottom-Section">
