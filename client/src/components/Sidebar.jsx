@@ -1,8 +1,6 @@
 import "./Sidebar.scss";
 
 function Sidebar() {
-
-  
   return (
     <div className="Main-Sidebar-Container">
       <div className="Sidebar-Container">
