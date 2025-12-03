@@ -1,75 +1,188 @@
-.Main-Container {
+// :root {
+//   //desktops
+//   --desktop-login-width: 20vw;
+//   --desktop-login-height: 50vh;
+
+//   --desktop-login-gap: 10px;
+//   --desktop-font-size: calc(var(--desktop-login-width) * 0.03);
+//   --desktop-input-width: 300px;
+
+//   //laptops
+//   --laptop-login-width: 50dvw;
+//   --laptop-login-height: 50dvh;
+//   --laptop-login-gap: 10px;
+//   --laptop-font-size: calc(var(--laptop-login-width) * 0.03);
+//   --laptop-input-width: 300px;
+// }
+
+.Page-Container {
+  font-size: clamp(14px, 2vw, 20px);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   height: 100vh;
   width: 100vw;
-  background-color: rgb(19, 19, 19);
+  background-color: var(--accent-color);
   flex-direction: column;
 }
 
-.Containerr {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  max-height: 200px;
-  gap: 20px;
-  min-height: 200px;
-  width: 100vw;
-  background-color: rgb(19, 19, 19);
-  flex-direction: column;
-}
-
-.Login-container {
-  gap: 10px;
-  padding: 20px;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  flex-direction: row;
-  width: 100vw;
-  height: 60vh;
-
-  form {
+@media (min-width: 1281px) {
+  .Login-Container {
+    font-size: 1.2rem;
     display: flex;
     justify-content: center;
-    margin-top: 50px;
-    gap: 50px;
-    width: 800px;
-    max-width: 800px;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    width: 500px;
+    height: 400px;
+    background-color: rgb(32, 32, 32);
+  }
 
-    input {
-      color: #ff6a00;
-      border: 1px solid #ff6a00;
+  .Form-Container {
+    font-size: 2rem;
+    gap: var(--desktop-login-gap);
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 50%;
+
+    form {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      margin-top: 0;
+      gap: 10px;
+      max-height: 100%;
+      max-width: 100%;
+
+      label {
+        width: 20px;
+        font-size: 1.2rem;
+      }
+
+      input {
+        font-size: 1.2rem;
+        width: 300px;
+        height: 40px;
+        color: white;
+        border: 1px solid #ff6a00;
+      }
     }
+  }
+
+  .Signin-container {
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    width: 200px;
+    height: 10%;
+  }
+
+  .error-container {
+    font-size: 12px;
+  }
+
+  .register-button {
+    cursor: pointer;
+    color: white;
+    font-size: 0.8rem;
+  }
+
+  .login-button-container {
+    width: 100px;
+    height: 30px;
+    justify-content: center;
+    display: flex;
+    border: 2px solid #ff6a00;
+
+    .login-button {
+      color: white;
+      font-size: 18px;
+    }
+  }
+  .Google-button {
+    width: 100px;
+    max-height: 70px;
   }
 }
 
-.Signin-container {
-  border-radius: 10px;
-  width: 100px;
-  height: 10%;
-}
+@media (min-width: 769px) and (max-width: 1280px) {
+  .Login-Container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    width: 500px;
+    height: 400px;
+    background-color: rgb(32, 32, 32);
+  }
 
-.register-button {
-  cursor: pointer;
-  color: white;
-  font-family: "Weight";
-}
+  .Form-Container {
+    gap: var(--desktop-login-gap);
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 50%;
 
-.login-button-container {
-  width: 100px;
-  height: 100px;
-  justify-content: center;
-  display: flex;
-  border-radius: 50%;
-  border: 2px solid #ff6a00;
+    form {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      margin-top: 0;
+      gap: 20px;
+      max-height: 100%;
+      max-width: 100%;
 
-  .login-button {
-    color: #ff6a00;
-    font-family: "Weight";
-    font-size: 18px;
+      label {
+        font-size: 1.5rem;
+      }
+
+      input {
+        width: 200px;
+        color: white;
+        border: 1px solid #ff6a00;
+      }
+    }
+  }
+
+  .Signin-container {
+    border-radius: 10px;
+    width: 100px;
+    height: 10%;
+  }
+
+  .error-container {
+    font-size: 12px;
+  }
+
+  .register-button {
+    cursor: pointer;
+    color: white;
+  }
+
+  .login-button-container {
+    width: 100px;
+    height: 30px;
+    justify-content: center;
+    display: flex;
+    border: 2px solid #ff6a00;
+
+    .login-button {
+      color: white;
+      font-size: 18px;
+    }
+  }
+  .Google-button {
+    width: 100px;
+    max-height: 70px;
   }
 }

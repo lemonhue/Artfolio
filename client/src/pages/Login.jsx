@@ -5,10 +5,14 @@ import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 import { useNavigate } from "react-router";
+import { ToastContainer, toast } from "react-toastify";
+import MyGoogleButton from "../components/MyGoogleButton.jsx";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
+  const errorMessage = "User does not exist";
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
@@ -23,13 +27,15 @@ function Login() {
       }
     } catch (error) {
       console.error("Error during login:", error.response.data.message);
+      setError(true);
     }
   };
 
   return (
-    <div className="Main-Container">
-      <div className="Containerr">
-        <div className="Login-container">
+    <div className="Page-Container">
+      <div className="Login-Container">
+        <h1> Login</h1>
+        <div className="Form-Container">
           <form>
             <div className="input-group">
               <label>Email: </label>
@@ -41,7 +47,6 @@ function Login() {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
-
             <div className="input-group">
               <label> Password: </label>
 
@@ -50,25 +55,22 @@ function Login() {
                 name="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-              ></input>
+              />
             </div>
           </form>
+          <div className="error-container">
+            {error && <p>{errorMessage}</p>}
+          </div>
           <div className="login-button-container">
             <button className="login-button" onClick={handleSubmit}>
               Login
             </button>
           </div>
         </div>
-        <div className="Google-container">
-          <GoogleLogin
-            onSuccess={(credentialsResponse) =>
-              console.log(credentialsResponse)
-            }
-            onError={() => console.log("Login failed")}
-          />
-        </div>
+
+        <MyGoogleButton />
         <div className="Signin-container">
-          <button className="register-button">Create Account</button>
+          <button className="register-button">Don't have an account? Sign In</button>
         </div>
       </div>
     </div>
