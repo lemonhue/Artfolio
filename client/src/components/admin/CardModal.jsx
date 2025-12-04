@@ -82,15 +82,17 @@ function CreateCardModal({ children, open, onClose }) {
               className="title"
               name="title"
               type="text"
+              placeholder="Enter Project Title"
               onChange={handleInputChange}
             />
             {/* </div> */}
 
             {/* <div className="input-group-description"> */}
-            <input
+            <textarea
               className="description"
               name="description"
               type="text"
+              placeholder="Enter Project Description"
               onChange={handleInputChange}
             />
             {/* </div> */}

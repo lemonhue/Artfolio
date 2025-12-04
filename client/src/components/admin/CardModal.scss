@@ -67,19 +67,20 @@
       color: white;
     }
 
-    input.description {
+    textarea.description {
       width: 90%;
       height: 70%;
       font-family: "Weight";
       color: white;
+      background-color: #2e2e2e;
     }
 
     .Container-submit {
       display: flex;
       height: 5%;
-      width: 100%;
+      width: 90%;
       gap: 10px;
-      justify-content: center;
+      justify-content: flex-end;
     }
   }
 
