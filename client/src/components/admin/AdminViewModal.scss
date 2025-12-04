@@ -1,36 +1,73 @@
 .container-public-view-modal {
+  overflow: scroll;
   position: fixed;
   display: flex;
-  top: 0%;
   flex-direction: row;
-  height: 100dvh;
-  width: 100dvw;
+  gap: 50px;
+  left: 10%;
+  top: 10%;
+  width: 80dvw;
+  height: 70dvh;
   justify-content: center;
   align-items: center;
   z-index: 1100;
-  background-color: transparent;
+  background-color: rgb(29, 29, 29);
+  border-radius: 10px;
 
-  img {
-    width: 80%;
-    height: 80%;
-    object-fit: contain;
-  }
-  .container-buttons {
+  .container-view-modal-content {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    width: 100%;
     height: 100%;
-    width: 50%;
+    justify-content: center;
 
-    .container-delete-button {
+    .container-section1 {
+      height: 100%;
+      width: 100%;
       display: flex;
-      position: fixed;
-      top: 12%;
-      right: 12%;
-      width: 20px;
-      height: 20px;
+      align-items: center;
 
-      .icon-color {
-        color: #f77c25;
+      img {
+        width: 80%;
+        height: 80%;
+        object-fit: contain;
+      }
+    }
+
+    .container-section2 {
+      height: 100%;
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      gap: 2.5%;
+
+      input {
+        font-family: "Weight";
+        color: white;
+        background-color: #2e2e2e;
+      }
+
+      textarea.description {
+        width: 90%;
+        height: 70%;
+        font-family: "Weight";
+        color: white;
+        background-color: #2e2e2e;
+      }
+
+      input.title {
+        height: 10%;
+        width: 90%;
+      }
+
+      .container-buttons {
+        gap: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        height: 10%;
+        width: 90%;
       }
     }
   }
