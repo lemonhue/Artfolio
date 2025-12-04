@@ -6,7 +6,7 @@ import axios from "axios";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import Modal from "../../components/admin/CardModal";
 import Pagination from "../../components/Pagination.jsx";
-import ViewModal from "../../components/admin/ViewModal";
+import ViewModal from "../../components/admin/AdminViewModal";
 
 function AdminProjects() {
   const [isOpen, setIsOpen] = useState(false);
