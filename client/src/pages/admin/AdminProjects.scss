@@ -27,6 +27,8 @@
       .Cards-List-Container {
         height: 75%;
         width: 100%;
+        display: flex;
+        justify-content: center;
 
         .Cards-Placeholder {
           font-family: "Weight";
@@ -54,11 +56,12 @@
 
         ul {
           height: 100%;
-          width: 98%;
+          width: 1660px;
+          max-width: 1660px;
           gap: 10px;
           display: flex;
           flex-direction: row;
-          justify-content: center;
+          justify-content: flex-start;
           mask-image: linear-gradient(
             to bottom,
             black 0%,
