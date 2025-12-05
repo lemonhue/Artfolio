@@ -51,4 +51,17 @@ function verifyPassword(password, salt, hash) {
   return hashedPassword === hash;
 }
 
-module.exports = { verifyPassword };
+passport.serializeUser(function (user, done) {
+  done(null, user.id);
+});
+
+passport.deserializeUser(async function (id, done) {
+  try {
+    const user = await User.findUserById(id);
+    done(null, user);
+  } catch (err) {
+    done(err);
+  }
+});
+
+module.exports = { verifyPassword, passport };
