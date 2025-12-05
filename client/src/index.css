@@ -1,17 +1,28 @@
 @import "tailwindcss";
 
+:root {
+  --accent-color: #ff6a00;
+  font-size: 16px;
+  font-family: "Weight";
+  color: white;
+  background-color: black;
+}
 
-@font-face {
-  font-family : 'Weight';
-  src: url('./assets/Weight.ttf') format('truetype');
+h1 {
+  font-size: 50px;
 }
 
 @font-face {
-  font-family : 'TrashHand';
-  src: url('./assets/TrashHand.TTF') format('truetype');
+  font-family: "Weight";
+  src: url("./assets/Weight.ttf") format("truetype");
 }
 
 @font-face {
-  font-family : 'Roboto';
-  src: url('./assets/Roboto-Regular.ttf') format('truetype');
+  font-family: "TrashHand";
+  src: url("./assets/TrashHand.TTF") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("./assets/Roboto-Regular.ttf") format("truetype");
 }
