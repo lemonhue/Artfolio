@@ -12,10 +12,18 @@ const cardRoutes = require("./routes/Card");
 const categoryRoutes = require("./routes/Category");
 const subcategoryRoutes = require("./routes/Subcategory");
 const aboutRoutes = require("./routes/About");
+const multer = require("multer");
 
 app.use(express.json());
 // app.use(cors());
-app.use(cors({ origin: process.env.CLIENT_ORIGIN, credentials: true }));
+app.use(
+  cors({
+    origin: process.env.CLIENT_ORIGIN,
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type"],
+  })
+);
 
 const router = express.Router();
 
@@ -32,6 +40,6 @@ app.listen(PORT, () => {
 
 app.use("/user", userRoutes);
 app.use("/card", cardRoutes);
-app.use("/about", cardRoutes);
+app.use("/about", aboutRoutes);
 app.use("/category", cardRoutes);
 app.use("/subcategory", cardRoutes);
