@@ -16,15 +16,17 @@ function Login() {
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
+    event.preventDefault();
+
     try {
-      const response = await axios.post("http://localhost:5000/user/login", {
-        email,
-        password,
-      });
-      if (response.status === 200 || response.status === 201) {
-        console.log("Succesfully logged in!");
-        navigate("/AdminHome");
-      }
+      const response = await axios.post(
+        "http://localhost:5000/user/login",
+        { email, password },
+        { withCredentials: true } 
+      );
+
+      console.log("Successfully logged in!");
+      navigate("/AdminHome");
     } catch (error) {
       console.error("Error during login:", error.response.data.message);
       setError(true);
