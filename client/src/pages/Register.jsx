@@ -16,7 +16,7 @@ function Register() {
   const handleSubmit = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/admin",
+        "http://localhost:5000/user",
         { firstName, lastName, userName, email, password },
         {
           headers: { "Content-Type": "application/json" },
@@ -28,7 +28,7 @@ function Register() {
         navigate("/login");
       }
     } catch (error) {
-      console.error("Error during registration:", error);
+      console.error("Error during registration:", error.response.data.message);
     }
   };
 
@@ -92,18 +92,17 @@ function Register() {
               required
             />
           </div>
-        </form>
-        <div className="container-button">
-          {showButton && (
+          <div className="container-button">
+            <a href="./Login">cancel</a>
             <button
               type="button"
               className="submit-button"
               onClick={handleSubmit}
             >
               submit
-              </button>
-          )}
-        </div>
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );
