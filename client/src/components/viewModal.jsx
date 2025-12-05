@@ -1,22 +1,23 @@
-import "./ViewModal.scss";
+import "./viewModal.scss";
 import ReactDom from "react-dom";
 import axios from "axios";
-import { FaTrash } from "react-icons/fa";
+import { IoMdClose } from "react-icons/io";
 
 function ViewModal({ card, open, onClose }) {
   if (!open) return null;
 
   return ReactDom.createPortal(
     <>
-      <div className="overlay" />
+      <div className="view-overlay" />
       <div className="container-public-view-modal">
-        <img src={card.image} />
-        {/* 
-        <div className="container-buttons">
-          <div className="container-delete-button">
-            <button onClick={onClose} />
-          </div>
-        </div> */}
+        <div className="image-container-button">
+          <button onClick={onClose}>
+            <IoMdClose className="close-btn"></IoMdClose>
+          </button>
+        </div>
+        <div className="image-container">
+          <img src={card.image} />
+        </div>
       </div>
     </>,
     document.getElementById("portal")

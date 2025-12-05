@@ -26,7 +26,7 @@ function AdminViewModal({ card, open, onClose }) {
   return ReactDom.createPortal(
     <>
       <div className="overlay" />
-      <div className="container-public-view-modal">
+      <div className="container-admin-view-modal">
         <div className="container-view-modal-content">
           <div className="container-section1">
             <img src={card.image} />

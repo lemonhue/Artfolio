@@ -1,4 +1,4 @@
-.container-public-view-modal {
+.container-admin-view-modal {
   overflow: scroll;
   position: fixed;
   display: flex;
@@ -17,6 +17,7 @@
   .container-view-modal-content {
     display: flex;
     flex-direction: row;
+    gap: 20px;
     width: 100%;
     height: 100%;
     justify-content: center;
@@ -26,6 +27,8 @@
       width: 100%;
       display: flex;
       align-items: center;
+      justify-content: center;
+      background-color: rgb(19, 19, 19);
 
       img {
         width: 80%;
