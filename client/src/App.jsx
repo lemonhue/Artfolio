@@ -6,7 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import Projects from "./pages/Projects.jsx";
 import PrivateRoutes from "./utilities/PrivateRoute.jsx";
-import AdminHome from "./pages/admin/Home.jsx";
+import AdminHome from "./pages/admin/AdminHome.jsx";
 import AdminProjects from "./pages/admin/AdminProjects.jsx";
 import AdminAbout from "./pages/admin/AdminAbout.jsx";
 import Login from "./pages/Login.jsx";
