@@ -70,7 +70,9 @@ function Login() {
 
         <MyGoogleButton />
         <div className="Signin-container">
-          <button className="register-button">Don't have an account? Sign In</button>
+          <a href="./Register" className="register-button">
+            Don't have an account? Sign In
+          </a>
         </div>
       </div>
     </div>
