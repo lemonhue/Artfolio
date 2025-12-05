@@ -8,7 +8,7 @@ import Projects from "./pages/Projects.jsx";
 import PrivateRoutes from "./utilities/PrivateRoute.jsx";
 import AdminHome from "./pages/admin/Home.jsx";
 import AdminProjects from "./pages/admin/AdminProjects.jsx";
-import AdminAbout from "./pages/admin/About.jsx";
+import AdminAbout from "./pages/admin/AdminAbout.jsx";
 import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
 
