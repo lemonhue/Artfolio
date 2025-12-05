@@ -2,11 +2,11 @@ const mongoose = require("mongoose");
 
 const CardSchema = new mongoose.Schema({
   image: {
-    data: Buffer,
-    contentType: String,
+    type: String,
+    required: true,
   },
-  category_id: { type: mongoose.Schema.Types.ObjectId, ref: "Category" },
-  subcategory_id: { type: mongoose.Schema.Types.ObjectId, ref: "SubCategory" },
+  // category_id: { type: mongoose.Schema.Types.ObjectId, ref: "Category" },
+  // subcategory_id: { type: mongoose.Schema.Types.ObjectId, ref: "SubCategory" },
   title: { type: String, required: true },
   description: { type: String, required: true },
 });
