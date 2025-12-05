@@ -1,9 +1,9 @@
-import "./Home.scss";
+import "./AdminHome.scss";
 import AdminNavbar from "../../components/admin/AdminNavbar";
 
 function Home() {
   return (
-    <div className="Container">
+    <div className="Admin-Home-Container">
       <AdminNavbar />
       <div class="stock-ticker">
         <ul aria-hidden="true">
