@@ -3,7 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const router = express.Router();
 const upload = require("../middleware/multer");
-const { uploadImage } = require("../util/cloudinaryConfig");
+const { uploadImage, deleteImage } = require("../util/cloudinaryConfig");
 const fs = require("fs");
 
 router.get("/", async (req, res) => {
@@ -41,7 +41,7 @@ router.post("/", upload.single("image"), async (req, res) => {
 
     const result = await uploadImage(req.file.path);
     fs.unlink(req.file.path, () => {});
-    
+
     const newCard = new Card({
       // image: req.file.filename,
 
@@ -84,8 +84,9 @@ router.delete("/:id", async (req, res) => {
     return res.status(404).json({ message: "No such card exists" });
   }
 
+  await deleteImage(id);
   const card = await Card.findOneAndDelete({ _id: id });
-
+  
   if (!card) {
     return res.status(404).json({ message: "No such card exists" });
   }
