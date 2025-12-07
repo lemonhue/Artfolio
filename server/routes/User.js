@@ -3,30 +3,30 @@ const express = require("express");
 const mongoose = require("mongoose");
 const router = express.Router();
 const hashPassword = require("../util/passwordEncrypter");
+const passport = require("passport");
 
 router.get("/", async (req, res) => {
   const users = await User.find({});
   return res.status(200).json(users);
 });
 
-router.post("/login", async (req, res) => {
-  try {
-    const { email, password } = req.body;
+router.post("/login", (req, res, next) => {
+  passport.authenticate("local", (err, user, info) => {
+    if (err) return next(err);
 
-    const user = await User.findOne({ email });
-    {
-      if (!user)
-        return res.status(404).json({ message: "User does not exist." });
+    if (!user) {
+      return res.status(401).json({ message: info.message });
     }
 
-    if (user.password !== password) {
-      return res.status(404).json({ message: "Invalid password" });
-    }
-    return res.status(200).json({ message: "Login successful", user });
-  } catch (error) {
-    console.error("error:", error);
-    return res.status(500).json({ message: "Server error" });
-  }
+    req.logIn(user, (err) => {
+      if (err) return next(err);
+
+      return res.status(200).json({
+        message: "Login successful",
+        user,
+      });
+    });
+  })(req, res, next);
 });
 
 router.post("/", async (req, res) => {
@@ -37,13 +37,16 @@ router.post("/", async (req, res) => {
         .status(400)
         .json({ message: "Missing required fields for user." });
     }
+
+    const { salt, hash } = hashPassword(password);
+
     const newUser = new User({
       firstName: firstName,
       lastName: lastName,
       userName: userName,
       email: email,
-      password: password,
-      // password: hashPassword(password),
+      salt: salt,
+      passwordHash: hash,
     });
     await newUser.save();
     res.status(201).json({ message: "New user created successfully." });
