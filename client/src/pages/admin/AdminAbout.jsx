@@ -11,6 +11,24 @@ import ViewModal from "../../components/admin/AdminViewModal.jsx";
 function AdminAbout() {
   const [isOpen, setIsOpen] = useState(false);
   const [isViewOpen, setIsViewOpen] = useState(false);
+  const [about, setAbout] = useState(null);
+
+  const fetchAbout = async () => {
+    try {
+      const response = await axios.get(`http://localhost:5000/about`);
+
+      if (response.status === 200) {
+        setAbout(response.data);
+        console.log("about:", response.data);
+      }
+    } catch (error) {
+      console.error("error:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchAbout();
+  }, []);
 
   return (
     <>
