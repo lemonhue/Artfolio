@@ -8,6 +8,14 @@
   --background-color: rgb(10, 10, 10);
 }
 
+.icon {
+  color: white;
+  font-size: 1rem;
+  &:hover {
+    color: #ff6a00;
+  }
+}
+
 h1 {
   font-size: 50px;
 }
