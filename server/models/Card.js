@@ -5,10 +5,14 @@ const CardSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  // category_id: { type: mongoose.Schema.Types.ObjectId, ref: "Category" },
-  // subcategory_id: { type: mongoose.Schema.Types.ObjectId, ref: "SubCategory" },
+
   title: { type: String, required: true },
   description: { type: String, required: true },
+  album_id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Album",
+    require: false,
+  },
 });
 
 const CardModel = mongoose.model("Card", CardSchema);
