@@ -2,13 +2,20 @@ const Card = require("../models/Card");
 const express = require("express");
 const mongoose = require("mongoose");
 const router = express.Router();
+const passport = require("passport");
 const upload = require("../middleware/multer");
 const { uploadImage, deleteImage } = require("../util/cloudinaryConfig");
 const fs = require("fs");
+const ensureAuthenticated = require("../middleware/ensureAuth");
 
 router.get("/", async (req, res) => {
   const cards = await Card.find({});
   return res.status(200).json(cards);
+});
+
+router.get("/admin", ensureAuthenticated, async (req, res) => {
+  const cards = await Card.find({});
+  res.status(200).json(cards);
 });
 
 router.get("/:id", async (req, res) => {
@@ -33,37 +40,42 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.post("/", upload.single("image"), async (req, res) => {
-  try {
-    if (!req.file) {
-      return res.status(400).json({ error: "No file uploaded" });
+router.post(
+  "/",
+  ensureAuthenticated,
+  upload.single("image"),
+  async (req, res) => {
+    try {
+      if (!req.file) {
+        return res.status(400).json({ error: "No file uploaded" });
+      }
+
+      const result = await uploadImage(req.file.path);
+      fs.unlink(req.file.path, () => {});
+
+      const newCard = new Card({
+        // image: req.file.filename,
+
+        image: result.secure_url,
+        title: req.body.title,
+        description: req.body.description,
+      });
+
+      await newCard.save();
+
+      res.status(201).json({
+        success: true,
+        message: "Uploaded & saved!",
+        card: newCard,
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: error.message });
     }
-
-    const result = await uploadImage(req.file.path);
-    fs.unlink(req.file.path, () => {});
-
-    const newCard = new Card({
-      // image: req.file.filename,
-
-      image: result.secure_url,
-      title: req.body.title,
-      description: req.body.description,
-    });
-
-    await newCard.save();
-
-    res.status(201).json({
-      success: true,
-      message: "Uploaded & saved!",
-      card: newCard,
-    });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: error.message });
   }
-});
+);
 
-router.patch("/:id", async (req, res) => {
+router.patch("/:id", ensureAuthenticated, async (req, res) => {
   const { id } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -77,7 +89,7 @@ router.patch("/:id", async (req, res) => {
   );
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", ensureAuthenticated, async (req, res) => {
   const { id } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -86,7 +98,7 @@ router.delete("/:id", async (req, res) => {
 
   await deleteImage(id);
   const card = await Card.findOneAndDelete({ _id: id });
-  
+
   if (!card) {
     return res.status(404).json({ message: "No such card exists" });
   }
