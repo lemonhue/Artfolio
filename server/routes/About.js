@@ -1,45 +1,30 @@
 const About = require("../models/About");
 const express = require("express");
 const mongoose = require("mongoose");
+const ensureAuthenticated = require("../middleware/ensureAuth");
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-  const cards = await Card.find({});
-  return res.status(200).json(users);
+  const about = await About.find({});
+  return res.status(200).json(about);
 });
 
-router.get("/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-      return res.status(404).json({ message: "No such data exists!" });
-    }
-
-    const card = await About.findById(id);
-
-    if (!user) {
-      return res.status(404).json({ message: "No such data exists!" });
-    }
-
-    return res.status(200).json(card);
-  } catch (error) {
-    console.log(error);
-    return res.status(400).json({ message: error });
-  }
+router.get("/admin", ensureAuthenticated, async (req, res) => {
+  const about = await About.find({});
+  return res.status(200).json(about);
 });
 
-router.post("/", async (req, res) => {
+router.post("/", ensureAuthenticated, async (req, res) => {
   try {
     const { username, bio } = req.body;
-    if (!username || !bio ) {
+    if (!username || !bio) {
       return res
         .status(400)
         .json({ message: "Missing required fields for bio." });
     }
     const newAbout = new About({
       username: username,
-      bio: bio
+      bio: bio,
     });
     await newAbout.save();
     res.status(200).json({ message: "New bio created successfully." });
@@ -49,7 +34,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.patch("/:id", async (req, res) => {
+router.patch("/:id", ensureAuthenticated, async (req, res) => {
   const { id } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -63,7 +48,7 @@ router.patch("/:id", async (req, res) => {
   );
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", ensureAuthenticated, async (req, res) => {
   const { id } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
