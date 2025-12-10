@@ -34,18 +34,19 @@ router.post("/", ensureAuthenticated, async (req, res) => {
   }
 });
 
-router.patch("/:id", ensureAuthenticated, async (req, res) => {
+router.put("/:id", ensureAuthenticated, async (req, res) => {
   const { id } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(404).json({ message: "No such bio exists" });
   }
 
-  const user = await About.findByIdAndUpdate(
+  const about = await About.findByIdAndUpdate(
     { _id: id },
     { ...req.body },
     { new: true }
   );
+  return res.status(200).json(about);
 });
 
 router.delete("/:id", ensureAuthenticated, async (req, res) => {
