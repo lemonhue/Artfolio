@@ -112,6 +112,11 @@
         .Cards-Categories-Container {
           width: 50%;
           height: 100%;
+
+          h2 {
+            font-size: 1.7rem;
+            color: white;
+          }
         }
 
         .Card-Info-Container {
@@ -125,7 +130,7 @@
           align-items: flex-end;
 
           h2 {
-            font-size: 25px;
+            font-size: 1.7rem;
             color: white;
           }
 

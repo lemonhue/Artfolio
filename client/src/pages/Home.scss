@@ -1,8 +1,8 @@
-.Container {
+.Container-Public-Home {
   display: flex;
   height: 100vh;
   width: 100vw;
-  background-color: rgb(19, 19, 19);
+  background-color: var(--background-color);
   flex-direction: row;
 }
 
