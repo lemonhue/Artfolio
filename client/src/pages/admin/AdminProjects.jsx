@@ -23,7 +23,13 @@ function AdminProjects() {
 
   const fetchCards = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/card`);
+      const response = await axios.get(
+        `http://localhost:5000/card/admin`,
+
+        {
+          withCredentials: true,
+        }
+      );
 
       if (response.status === 200) {
         setCards(response.data);
@@ -71,6 +77,7 @@ function AdminProjects() {
               <Modal open={isOpen} onClose={() => setIsOpen(false)} />
               <ViewModal
                 card={selectedCard}
+                setCard={setSelectedCard}
                 open={isViewOpen}
                 onClose={() => setIsViewOpen(false)}
               />
