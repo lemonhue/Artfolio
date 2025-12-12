@@ -81,3 +81,87 @@
     }
   }
 }
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .Admin-Home-Container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--background-color);
+    flex-direction: row;
+  }
+
+  .Main-text {
+    user-select: none;
+    position: relative;
+    z-index: 2;
+    font-family: "Weight";
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-weight: 600;
+    color: #ff6a00;
+    line-height: 0.8;
+
+    h1 {
+      font-size: 6rem;
+    }
+    span {
+      margin: 10px 0;
+    }
+  }
+
+  .Background-text {
+    //   font-family: "Weight";
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    overflow: hidden;
+    position: fixed;
+    z-index: 0;
+    top: 40%;
+  }
+
+  .stock-ticker {
+    opacity: 0.7;
+    z-index: 0;
+    width: 100%;
+    top: 47%;
+    position: fixed;
+    height: 50px;
+    font-size: 25px;
+    padding-block: 8px;
+    // border-block: 1px solid white;
+    overflow: hidden;
+    user-select: none;
+    --gap: 50px;
+    display: flex;
+    gap: var(--gap);
+  }
+
+  .stock-ticker ul {
+    font-family: "Weight";
+    font-size: 0.6rem;
+    list-style: none;
+    flex-shrink: 0;
+    min-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    animation: scroll 50s linear infinite;
+  }
+
+  .scroll-text {
+    color: white;
+  }
+
+  @keyframes scroll {
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+}
