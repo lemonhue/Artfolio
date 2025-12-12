@@ -59,6 +59,7 @@ router.post(
         image: result.secure_url,
         title: req.body.title,
         description: req.body.description,
+        album_id: req.album_id,
       });
 
       await newCard.save();
@@ -75,18 +76,19 @@ router.post(
   }
 );
 
-router.patch("/:id", ensureAuthenticated, async (req, res) => {
+router.put("/:id", ensureAuthenticated, async (req, res) => {
   const { id } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(404).json({ message: "No such card exists" });
   }
 
-  const user = await Card.findByIdAndUpdate(
+  const card = await Card.findByIdAndUpdate(
     { _id: id },
     { ...req.body },
     { new: true }
   );
+  return res.status(200).json(card);
 });
 
 router.delete("/:id", ensureAuthenticated, async (req, res) => {
