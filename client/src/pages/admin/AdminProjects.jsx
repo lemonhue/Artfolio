@@ -44,6 +44,19 @@ function AdminProjects() {
     fetchCards();
   }, []);
 
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 480px)");
+
+    const updatePosts = () => {
+      setPostsPerPage(mq.matches ? 5 : 11);
+    };
+
+    updatePosts(); 
+    mq.addEventListener("change", updatePosts);
+
+    return () => mq.removeEventListener("change", updatePosts);
+  }, []);
+
   return (
     <>
       <AdminNavbar />
