@@ -3,7 +3,7 @@ import Navbar from "../components/navbar.jsx";
 
 function Home() {
   return (
-    <div className="Container">
+    <div className="Container-Public-Home">
       <Navbar />
       <div class="stock-ticker">
         <ul aria-hidden="true">
@@ -62,8 +62,8 @@ function Home() {
       </div>
 
       <div className="Main-text">
-        <h1>KKGURREN</h1>
-        <h1>KKGURREN</h1>
+        <h1>LEMONHUE</h1>
+        <h1>LEMONHUE</h1>
       </div>
     </div>
   );

@@ -5,8 +5,8 @@ function Sidebar() {
     <div className="Main-Sidebar-Container">
       <div className="Sidebar-Container">
         <div className="Sidebar-Banner">
-          <h1>KKGURREN</h1>
-          <h1>KKGURREN</h1>
+          <h1>LEMONHUE</h1>
+          <h1>LEMONHUE</h1>
         </div>
 
         {/* <div className="Sidebar-stock-ticker-vertical">
