@@ -1,6 +1,5 @@
 import "./AdminProjects.scss";
 import AdminNavbar from "../../components/admin/AdminNavbar.jsx";
-import Sidebar from "../../components/Sidebar.jsx";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { IoIosAddCircleOutline } from "react-icons/io";
@@ -61,7 +60,6 @@ function AdminProjects() {
     <>
       <AdminNavbar />
       <div className="Container-Admin-Projects">
-        <Sidebar />
         <div className="Projects-List-Container">
           <div className="Cards-List-Container">
             <ul>
