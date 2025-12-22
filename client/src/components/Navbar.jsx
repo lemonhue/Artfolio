@@ -5,12 +5,17 @@ function Navbar() {
   return (
     <>
       <nav className="nav">
-        <NavLink exact="true" activeclassname="active" to="/Projects">
-          Projects
-        </NavLink>
-        <NavLink exact="true" activeclassname="active" to="/About">
-          About
-        </NavLink>
+        <div className="Name">
+          <h1>Lemonhue</h1>
+        </div>
+        <div className="nav-links">
+          <NavLink exact="true" activeclassname="active" to="/Projects">
+            Projects
+          </NavLink>
+          <NavLink exact="true" activeclassname="active" to="/About">
+            About
+          </NavLink>
+        </div>
       </nav>
     </>
   );
