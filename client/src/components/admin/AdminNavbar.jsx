@@ -5,12 +5,17 @@ function AdminNavbar() {
   return (
     <>
       <nav className="nav">
-        <NavLink exact="true" activeclassname="active" to="/AdminProjects">
-          Projects
-        </NavLink>
-        <NavLink exact="true" activeclassname="active" to="/AdminAbout">
-          About
-        </NavLink>
+        <div className="Name">
+          <h1>Lemonhue</h1>
+        </div>
+        <div className="nav-links">
+          <NavLink exact="true" activeclassname="active" to="/AdminProjects">
+            Projects
+          </NavLink>
+          <NavLink exact="true" activeclassname="active" to="/AdminAbout">
+            About
+          </NavLink>
+        </div>
       </nav>
     </>
   );
