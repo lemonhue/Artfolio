@@ -99,7 +99,7 @@ function AdminProjects() {
             <div className="Card-Info-Container">
               {(!hoveredCard || hoveredCard === null) && (
                 <>
-                  <h2> No Projects</h2>
+                  <h2> Looking for something? </h2>
                 </>
               )}
 
