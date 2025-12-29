@@ -1,6 +1,5 @@
 import "./Projects.scss";
 import Navbar from "../components/Navbar.jsx";
-import Sidebar from "../components/Sidebar.jsx";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { IoIosAddCircleOutline } from "react-icons/io";
@@ -39,7 +38,6 @@ function Projects() {
     <>
       <Navbar />
       <div className="Container-Public-Projects">
-        <Sidebar />
         <div className="Public-Projects-List-Container">
           <div className="Public-Cards-List-Container">
             <ul>
@@ -73,7 +71,7 @@ function Projects() {
             <div className="Public-Card-Info-Container">
               {(!hoveredCard || hoveredCard === null) && (
                 <>
-                  <h2> No Projects</h2>
+                  <h2> Looking for something?</h2>
                 </>
               )}
 
