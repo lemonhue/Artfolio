@@ -1,6 +1,5 @@
 import "./AdminAbout.scss";
 import AdminNavbar from "../../components/admin/AdminNavbar.jsx";
-import Sidebar from "../../components/Sidebar.jsx";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { IoIosAddCircleOutline } from "react-icons/io";
@@ -57,7 +56,6 @@ function AdminAbout() {
     <>
       <AdminNavbar />
       <div className="Container-Admin-About">
-        {/* <Sidebar /> */}
         <div className="Admin-About-Container">
           <div className="Admin-About-Content">
             <div className="Admin-About-Username">
