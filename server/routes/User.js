@@ -56,4 +56,12 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.get("/auth-status", (req, res) => {
+  if (req.isAuthenticated()) {
+    return res.json({ message: "Success", user: req.session.user });
+  } else {
+    return res.status(401).json({ message: "Not authenticated" });
+  }
+});
+
 module.exports = router;
