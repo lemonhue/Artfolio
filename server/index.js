@@ -57,7 +57,9 @@ app.use("/category", cardRoutes);
 app.use("/subcategory", cardRoutes);
 
 mongoose
-  .connect(DB_STRING)
+  .connect(DB_STRING, {
+    dbName: "Artfolio"
+  })
   .then(async () => {
     console.log("Successfully connected to DB");
   })
