@@ -16,6 +16,7 @@ const session = require("express-session");
 const passport = require("passport");
 require("./middleware/passport");
 const MongoStore = require("connect-mongo").default;
+const connectDB = require("./lib/db");
 
 app.use(express.json());
 app.use(
@@ -40,8 +41,8 @@ app.use(
     saveUninitialized: false,
     cookie: {
       httpOnly: true,
-      sameSite: "lax",
-      secure: false,
+      sameSite: "none",
+      secure: true,
       maxAge: 1000 * 60 * 60 * 24,
     },
   })
@@ -56,15 +57,7 @@ app.use("/about", aboutRoutes);
 app.use("/category", cardRoutes);
 app.use("/subcategory", cardRoutes);
 
-mongoose
-  .connect(DB_STRING, {
-    dbName: "Artfolio"
-  })
-  .then(async () => {
-    console.log("Successfully connected to DB");
-  })
-  .catch((error) => console.log(error));
-
-app.listen(PORT, () => {
-  console.log("server is running");
+app.use(async (req, res, next) => {
+  await connectDB();
+  next();
 });
