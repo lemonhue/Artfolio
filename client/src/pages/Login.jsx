@@ -20,7 +20,7 @@ function Login() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/user/login",
+        `${import.meta.env.VITE_API_URL}/user/login`,
         { email, password },
         { withCredentials: true } 
       );

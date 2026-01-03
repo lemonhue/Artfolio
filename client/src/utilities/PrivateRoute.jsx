@@ -8,7 +8,7 @@ function PrivateRoutes() {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        await axios.get("http://localhost:5000/user/auth-status", {
+        await axios.get(`${import.meta.env.VITE_API_URL}/user/auth-status`, {
           withCredentials: true,
         });
         setIsAuthenticated(true);

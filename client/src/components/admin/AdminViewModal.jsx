@@ -11,7 +11,7 @@ function AdminViewModal({ card, setCard, open, onClose }) {
   const handleDelete = async () => {
     try {
       const response = await axios.delete(
-        `http://localhost:5000/card/${card._id}`,
+        `${import.meta.env.VITE_API_URL}/card/${card._id}`,
         {
           withCredentials: true,
         }
@@ -28,7 +28,7 @@ function AdminViewModal({ card, setCard, open, onClose }) {
   const updateProject = async () => {
     try {
       const response = await axios.put(
-        `http://localhost:5000/card/${card._id}`,
+        `${import.meta.env.VITE_API_URL}/${card._id}`,
         card,
         {
           withCredentials: true,

@@ -46,7 +46,7 @@ function CreateCardModal({ children, open, onClose }) {
     console.log(fd);
 
     try {
-      const response = await axios.post("http://localhost:5000/card", fd, {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/card`, fd, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

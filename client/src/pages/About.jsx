@@ -11,7 +11,7 @@ function About() {
 
   const fetchAbout = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/about");
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/about`);
       if (response.status === 200) {
         console.log("About fetched successfully");
         setAbout(response.data[0]);

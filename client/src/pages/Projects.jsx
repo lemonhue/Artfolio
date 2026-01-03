@@ -19,7 +19,7 @@ function Projects() {
 
   const fetchCards = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/card`);
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/card`);
 
       if (response.status === 200) {
         setCards(response.data);

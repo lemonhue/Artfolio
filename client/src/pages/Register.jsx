@@ -16,7 +16,7 @@ function Register() {
   const handleSubmit = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/user",
+        `${import.meta.env.VITE_API_URL}/user`,
         { firstName, lastName, userName, email, password },
         {
           headers: { "Content-Type": "application/json" },
