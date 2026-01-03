@@ -1,5 +1,5 @@
 import "./Register.scss";
-import Navbar from "../components/navbar.jsx";
+import Navbar from "../components/Navbar.jsx";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
