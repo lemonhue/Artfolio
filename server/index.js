@@ -4,7 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 10000;
 const DB_STRING = process.env.DB_STRING;
 const userRoutes = require("./routes/User");
 const cardRoutes = require("./routes/Card");
@@ -55,8 +55,11 @@ app.use("/user", userRoutes);
 app.use("/card", cardRoutes);
 app.use("/about", aboutRoutes);
 
-
 app.use(async (req, res, next) => {
   await connectDB();
   next();
+});
+
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Listening on port ${PORT}`);
 });
