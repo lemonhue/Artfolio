@@ -54,8 +54,7 @@ app.use(passport.session());
 app.use("/user", userRoutes);
 app.use("/card", cardRoutes);
 app.use("/about", aboutRoutes);
-app.use("/category", cardRoutes);
-app.use("/subcategory", cardRoutes);
+
 
 app.use(async (req, res, next) => {
   await connectDB();
