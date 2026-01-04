@@ -4,6 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
+const PORT = process.env.PORT;
 const DB_STRING = process.env.DB_STRING;
 const userRoutes = require("./routes/User");
 const cardRoutes = require("./routes/Card");
@@ -60,5 +61,3 @@ app.use(async (req, res, next) => {
   await connectDB();
   next();
 });
-
-module.exports = app;
