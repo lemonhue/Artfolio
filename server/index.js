@@ -16,7 +16,7 @@ const session = require("express-session");
 const passport = require("passport");
 require("./middleware/passport");
 const MongoStore = require("connect-mongo").default;
-const connectDB = require("./lib/db");
+const connectDB = require("./util/db");
 
 app.use(express.json());
 app.use(
