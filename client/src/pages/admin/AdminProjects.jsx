@@ -23,7 +23,7 @@ function AdminProjects() {
   const fetchCards = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/card/admin`,
+        `${import.meta.env.VITE_API_URL}/card/admin`,
 
         {
           withCredentials: true,
