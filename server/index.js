@@ -33,6 +33,8 @@ const sessionStore = MongoStore.create({
   collection: "sessions",
 });
 
+app.set("trust proxy", 1);
+
 app.use(
   session({
     store: sessionStore,
