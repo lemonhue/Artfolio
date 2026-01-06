@@ -1,61 +1,57 @@
+.Container-Public-About {
+  background-color: var(--background-color);
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 
-  .Container-Public-About {
-    background-color: var(--background-color);
-    overflow: hidden;
-    width: 100vw;
-    height: 100vh;
+  .Public-About-Container {
+    width: 90%;
+    height: 90%;
+    color: white;
     display: flex;
-    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    position: relative;
 
-    .Public-About-Container {
-      width: 90%;
-      height: 90%;
-      color: white;
+    .Public-About-Content {
       display: flex;
-      align-items: center;
+      width: 100%;
+      height: 100%;
       flex-direction: column;
-      position: relative;
+      // align-items: center;
 
-      .Public-About-Content {
+      p {
+        font-size: (2rem, 4rem, 6rem);
+      }
+
+      .Public-About-Username {
         display: flex;
-        width: 100%;
-        height: 100%;
-        flex-direction: column;
-        // align-items: center;
+        align-items: flex-start;
+        flex-direction: row;
+        font-size: clamp(20px, 32vw, 500px);
+        color: #ff6a00;
+      }
+      .Public-About-Bio {
+        margin-left: 15px;
+        display: flex;
+        align-items: flex-start;
+        position: relative;
+        flex-direction: row;
+        height: 300px;
+        font-size: clamp(5px, 6.2vw, 100px);
+        top: -200px;
 
-        p {
-          font-size: (2rem, 4rem, 6rem );
-        }
-
-        .Public-About-Username {
-          display: flex;
-          align-items: flex-start;
-          flex-direction: row;
-          font-size: clamp(20px, 32vw, 500px);
-          color: #ff6a00;
-        }
-        .Public-About-Bio {
-          margin-left: 15px;
-          display: flex;
-          align-items: flex-start;
-          position: relative;
-          flex-direction: row;
-          height: 300px;
-          font-size: clamp(1.3rem, 5rem, 7rem);
-          top: -200px;
-
-          text-area {
-            max-width: 100%;
-          }
+        text-area {
+          max-width: 100%;
         }
       }
     }
   }
-
-
-
+}
 
 // @media (max-width: 767px) {
 //   .Container-Public-About {
