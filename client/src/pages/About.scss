@@ -32,8 +32,11 @@
         display: flex;
         align-items: flex-start;
         flex-direction: row;
-        font-size: clamp(20px, 32vw, 500px);
         color: #ff6a00;
+
+        h1 {
+          font-size: clamp(20px, 32vw, 500px);
+        }
       }
       .Public-About-Bio {
         margin-left: 15px;
@@ -42,9 +45,10 @@
         position: relative;
         flex-direction: row;
         height: 300px;
-        font-size: clamp(5px, 6.2vw, 100px);
         top: -200px;
-
+        h1 {
+          font-size: clamp(20px, 32vw, 500px);
+        }
         text-area {
           max-width: 100%;
         }
@@ -52,62 +56,3 @@
     }
   }
 }
-
-// @media (max-width: 767px) {
-//   .Container-Public-About {
-//     background-color: var(--background-color);
-//     overflow: hidden;
-//     width: 100vw;
-//     height: 100vh;
-//     display: flex;
-//     flex-direction: row;
-//     align-items: center;
-//     justify-content: center;
-
-//     .Public-About-Container {
-//       width: 90%;
-//       height: 90%;
-//       color: white;
-//       display: flex;
-//       align-items: center;
-//       flex-direction: column;
-//       position: relative;
-
-//       .Public-About-Content {
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//         width: 100%;
-//         height: 100%;
-//         flex-direction: column;
-//         // align-items: center;
-
-//         p {
-//           font-size: 5rem;
-//         }
-
-//         .Public-About-Username {
-//           display: flex;
-//           align-items: flex-start;
-//           flex-direction: row;
-//           font-size: 7rem;
-//           color: #ff6a00;
-//         }
-//         .Public-About-Bio {
-//           margin-left: 15px;
-//           display: flex;
-//           align-items: flex-start;
-//           position: relative;
-//           flex-direction: row;
-//           height: 300px;
-//           font-size: 1.3rem;
-//           top: -50px;
-
-//           text-area {
-//             max-width: 100%;
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
