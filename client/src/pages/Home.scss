@@ -4,6 +4,7 @@
   width: 100vw;
   background-color: var(--background-color);
   flex-direction: row;
+  overflow: hidden;
 }
 
 .Main-text {
@@ -38,33 +39,6 @@
   top: 40%;
 }
 
-// .Scroll-content {
-//   gap: 10px;
-//   flex-shrink: 0;
-//   height: 100vh;
-//   z-index: 1;
-//   display: flex;
-//   // position: fixed;
-//   width: max-content;
-//   font-family: "Weight";
-//   font-size: 50px;
-//   color: #ffffff;
-//   animation: scroll 30s linear infinite;
-
-//   span {
-//     font-size: 40px;
-//     width: 150px;
-//   }
-// }
-
-// @keyframes scroll {
-//   0% {
-//     transform: translateX(0);
-//   }
-//   100% {
-//     transform: translateX(-100%);
-//   }
-// }
 
 .stock-ticker {
   opacity: 0.7;
