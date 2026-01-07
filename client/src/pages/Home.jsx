@@ -5,6 +5,7 @@ function Home() {
   return (
     <div className="Container-Public-Home">
       <Navbar />
+      <h1>LEMONHUE</h1>
       <div className="stock-ticker">
         <ul aria-hidden="true">
           <li>
@@ -88,10 +89,7 @@ function Home() {
         </ul>
       </div>
 
-      <div className="Main-text">
-        <h1>LEMON
-          <br></br>HUEEE</h1>
-      </div>
+        <h2>LEMONHUE</h2>
     </div>
   );
 }
