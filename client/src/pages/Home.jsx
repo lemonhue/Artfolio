@@ -63,7 +63,7 @@ function Home() {
 
       <div className="Main-text">
         <h1>LEMON
-          <br></br>          HUE</h1>
+          <br></br>HUEEE</h1>
       </div>
     </div>
   );
