@@ -62,8 +62,8 @@ function Home() {
       </div>
 
       <div className="Main-text">
-        <h1>LEMONHUE</h1>
-        <h2>LEMONHUE</h2>
+        <h1>LEMON
+          <br></br>          HUE</h1>
       </div>
     </div>
   );
