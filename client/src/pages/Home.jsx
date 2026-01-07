@@ -5,7 +5,7 @@ function Home() {
   return (
     <div className="Container-Public-Home">
       <Navbar />
-      <div className="stock-ticker">
+      <div class="stock-ticker">
         <ul aria-hidden="true">
           <li>
             <span className="scroll-text"> I Draw</span>
