@@ -32,12 +32,8 @@ function About() {
       <div className="Container-Public-About">
         <div className="Public-About-Container">
           <div className="Public-About-Content">
-            <div className="Public-About-Username">
-              <h1>{about?.username}</h1>
-            </div>
-            <div className="Public-About-Bio">
-              <h1>{about?.bio}</h1>
-            </div>
+              <h1 className="Public-About-Username">{about?.username}</h1>
+              <h1 className="Public-About-Bio">{about?.bio}</h1>
           </div>
         </div>
       </div>
