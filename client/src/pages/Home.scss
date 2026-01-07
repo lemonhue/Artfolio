@@ -22,7 +22,9 @@
   color: #ff6a00;
   line-height: 0.8;
 
-  h1,
+  h1 {
+    font-size: clamp(6rem, 15vw, 30rem);
+  }
   h2 {
     font-size: clamp(6rem, 15vw, 30rem);
   }
