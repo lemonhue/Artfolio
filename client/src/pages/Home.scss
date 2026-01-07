@@ -3,9 +3,11 @@
   height: 100vh;
   width: 100vw;
   background-color: var(--background-color);
-  flex-direction: row;
+  flex-direction: column;
   overflow: hidden;
-  line-height: 1;
+  justify-content: center;
+  align-items: center;
+  line-height: 0.8;
 }
 
 .Main-text {
@@ -24,7 +26,10 @@
   line-height: 0.8;
 
   h1 {
-    font-size: clamp(6rem, 15vw, 30rem);
+    font-size: 10rem;
+  }
+  h2 {
+    font-size: 10rem;
   }
 
   span {
