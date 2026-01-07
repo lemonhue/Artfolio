@@ -33,7 +33,7 @@ function AdminAbout() {
   const updateAbout = async () => {
     try {
       const response = await axios.put(
-        `http://localhost:5000/about/${about._id}`,
+        `${import.meta.env.VITE_API_URL}/about/${about._id}`,
         about,
         {
           withCredentials: true,
