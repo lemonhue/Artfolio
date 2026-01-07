@@ -61,9 +61,9 @@ function Home() {
         </ul>
       </div>
 
-      <div className="Main-text">
-        <h1>KKGURREN</h1>
-        <h1>KKGURREN</h1>
+       <div className="Main-text">
+        <h1>LEMON
+          <br></br>HUEEE</h1>
       </div>
     </div>
   );
