@@ -10,91 +10,94 @@
   flex-direction: column;
 }
 
-  .Login-Container {
-    font-size: 1.2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 10px;
-    width: 500px;
-    height: 400px;
-    background-color: rgb(32, 32, 32);
-  }
+.Login-Container {
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  width: 500px;
+  height: 300px;
+  background-color: rgb(32, 32, 32);
 
-  .Form-Container {
+  h1 {
     font-size: 2rem;
-    gap: var(--desktop-login-gap);
-    padding: 20px;
-    align-items: center;
-    justify-content: center;
+  }
+}
+
+.Form-Container {
+  font-size: 2rem;
+  gap: 7px;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 50%;
+
+  form {
     display: flex;
+    justify-content: center;
     flex-direction: column;
-    width: 90%;
-    height: 50%;
+    margin-top: 0;
+    gap: 10px;
+    max-height: 100%;
+    max-width: 100%;
 
-    form {
+    .input-group {
+      gap: 50px;
       display: flex;
-      justify-content: center;
-      flex-direction: column;
-      margin-top: 0;
-      gap: 10px;
-      max-height: 100%;
-      max-width: 100%;
-
-      .input-group {
-        gap: 50px;
-        display: flex;
-        flex-direction: row;
-      }
-
-      label {
-        width: 20px;
-        font-size: 1.2rem;
-      }
-
-      input {
-        font-size: 1.2rem;
-        width: 300px;
-        height: 40px;
-        color: white;
-        border: 1px solid #ff6a00;
-      }
+      flex-direction: row;
     }
-  }
 
-  .Signin-container {
-    display: flex;
-    justify-content: center;
-    border-radius: 10px;
-    width: 200px;
-    height: 10%;
-  }
+    label {
+      width: 20px;
+      font-size: 1.2rem;
+    }
 
-  .error-container {
-    font-size: 12px;
-  }
-
-  .register-button {
-    cursor: pointer;
-    color: white;
-    font-size: 0.8rem;
-  }
-
-  .login-button-container {
-    width: 100px;
-    height: 30px;
-    justify-content: center;
-    display: flex;
-    border: 2px solid #ff6a00;
-
-    .login-button {
+    input {
+      font-size: 1.2rem;
+      width: 300px;
+      height: 40px;
       color: white;
-      font-size: 18px;
+      border: 1px solid #ff6a00;
     }
   }
-  .Google-button {
-    width: 100px;
-    max-height: 70px;
-  }
+}
 
+.Signin-container {
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  width: 200px;
+  height: 10%;
+}
+
+.error-container {
+  font-size: 12px;
+}
+
+.register-button {
+  cursor: pointer;
+  color: white;
+  font-size: 0.8rem;
+}
+
+.login-button-container {
+  width: 100px;
+  height: 30px;
+  justify-content: center;
+  display: flex;
+  border: 2px solid #ff6a00;
+
+  .login-button {
+    color: white;
+    font-size: 18px;
+  }
+}
+.Google-button {
+  width: 100px;
+  max-height: 70px;
+}
