@@ -3,68 +3,13 @@ import AdminNavbar from "../../components/admin/AdminNavbar";
 
 function Home() {
   return (
-    <div className="Admin-Home-Container">
+    <div className="Container-Home">
       <AdminNavbar />
-      <div class="stock-ticker">
-        <ul aria-hidden="true">
-          <li>
-            <span className="scroll-text"> I Draw</span>
-          </li>
-          <li>
-            <span className="scroll-text"> I Draw</span>
-          </li>
-          <li>
-            <span className="scroll-text"> I Draw</span>
-          </li>
-          <li>
-            <span className="scroll-text"> I Draw</span>
-          </li>
-          <li>
-            <span className="scroll-text"> I Draw</span>
-          </li>
-          <li>
-            <span className="scroll-text"> I Draw</span>
-          </li>
-          <li>
-            <span className="scroll-text"> I Draw</span>
-          </li>
-          <li>
-            <span className="scroll-text"> I Draw</span>
-          </li>
-        </ul>
-
-        <ul aria-hidden="true">
-          <li>
-            <span className="scroll-text"> I Draw</span>
-          </li>
-          <li>
-            <span className="scroll-text"> I Draw</span>
-          </li>
-          <li>
-            <span className="scroll-text"> I Draw</span>
-          </li>
-          <li>
-            <span className="scroll-text"> I Draw</span>
-          </li>
-          <li>
-            <span className="scroll-text"> I Draw</span>
-          </li>
-          <li>
-            <span className="scroll-text"> I Draw</span>
-          </li>
-          <li>
-            <span className="scroll-text"> I Draw</span>
-          </li>
-          <li>
-            <span className="scroll-text"> I Draw</span>
-          </li>
-        </ul>
+      <div className="Home-Text">
+        <h1>I DRAW</h1>
       </div>
 
-       <div className="Main-text">
-        <h1>LEMON
-          <br></br>HUEEE</h1>
-      </div>
+      <div className="Home-Background"></div>
     </div>
   );
 }

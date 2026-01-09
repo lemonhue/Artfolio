@@ -3,97 +3,14 @@ import Navbar from "../components/Navbar.jsx";
 
 function Home() {
   return (
-    <>
+    <div className="Container-Home">
       <Navbar />
-
-      <div className="Container-Public-Home">
-        <h1>LEMONHUE</h1>
-        <div className="stock-ticker">
-          <ul aria-hidden="true">
-            <li>
-              <span className="scroll-text"> I Draw</span>
-            </li>
-            <li>
-              <span className="scroll-text"> I Draw</span>
-            </li>
-            <li>
-              <span className="scroll-text"> I Draw</span>
-            </li>
-            <li>
-              <span className="scroll-text"> I Draw</span>
-            </li>
-            <li>
-              <span className="scroll-text"> I Draw</span>
-            </li>
-            <li>
-              <span className="scroll-text"> I Draw</span>
-            </li>
-            <li>
-              <span className="scroll-text"> I Draw</span>
-            </li>
-            <li>
-              <span className="scroll-text"> I Draw</span>
-            </li>
-          </ul>
-
-          <ul aria-hidden="true">
-            <li>
-              <span className="scroll-text"> I Draw</span>
-            </li>
-            <li>
-              <span className="scroll-text"> I Draw</span>
-            </li>
-            <li>
-              <span className="scroll-text"> I Draw</span>
-            </li>
-            <li>
-              <span className="scroll-text"> I Draw</span>
-            </li>
-            <li>
-              <span className="scroll-text"> I Draw</span>
-            </li>
-            <li>
-              <span className="scroll-text"> I Draw</span>
-            </li>
-            <li>
-              <span className="scroll-text"> I Draw</span>
-            </li>
-            <li>
-              <span className="scroll-text"> I Draw</span>
-            </li>
-          </ul>
-
-          <ul aria-hidden="true">
-            <li>
-              <span className="scroll-text"> I Draw</span>
-            </li>
-            <li>
-              <span className="scroll-text"> I Draw</span>
-            </li>
-            <li>
-              <span className="scroll-text"> I Draw</span>
-            </li>
-            <li>
-              <span className="scroll-text"> I Draw</span>
-            </li>
-            <li>
-              <span className="scroll-text"> I Draw</span>
-            </li>
-            <li>
-              <span className="scroll-text"> I Draw</span>
-            </li>
-            <li>
-              <span className="scroll-text"> I Draw</span>
-            </li>
-            <li>
-              <span className="scroll-text"> I Draw</span>
-            </li>
-          </ul>
-        </div>
-
-        <h2>LEMONHUE</h2>
+      <div className="Home-Text">
+        <h1>I DRAW</h1>
       </div>
-    </>
+
+      <div className="Home-Background"></div>
+    </div>
   );
 }
 
