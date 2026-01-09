@@ -6,7 +6,9 @@ function Navbar() {
     <>
       <nav className="nav">
         <div className="Name">
-          <h1>Lemonhue</h1>
+          <NavLink xact="true" activeclassname="active" to="/Home">
+            Lemonhue
+          </NavLink>
         </div>
         <div className="nav-links">
           <NavLink exact="true" activeclassname="active" to="/Projects">
