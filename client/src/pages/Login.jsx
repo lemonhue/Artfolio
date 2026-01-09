@@ -6,7 +6,6 @@ import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import { ToastContainer, toast } from "react-toastify";
-import MyGoogleButton from "../components/MyGoogleButton.jsx";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -70,7 +69,6 @@ function Login() {
           </div>
         </div>
 
-        <MyGoogleButton />
         <div className="Signin-container">
           <a href="./Register" className="register-button">
             Don't have an account? Sign In
