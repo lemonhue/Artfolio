@@ -28,7 +28,7 @@ function AdminViewModal({ card, setCard, open, onClose }) {
   const updateProject = async () => {
     try {
       const response = await axios.put(
-        `${import.meta.env.VITE_API_URL}/${card._id}`,
+        `${import.meta.env.VITE_API_URL}/card/${card._id}`,
         card,
         {
           withCredentials: true,
