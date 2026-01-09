@@ -1,5 +1,6 @@
 import "./Home.scss";
 import Navbar from "../components/Navbar.jsx";
+import BG from "../assets/BG.jpg";
 
 function Home() {
   return (
@@ -8,8 +9,7 @@ function Home() {
       <div className="Home-Text">
         <h1>I DRAW</h1>
       </div>
-
-      <div className="Home-Background"></div>
+      <div className="Home-Background-Gradient"></div>
     </div>
   );
 }
