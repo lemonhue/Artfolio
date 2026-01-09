@@ -39,8 +39,10 @@ function Register() {
   }, [firstName, lastName, userName, email, password]);
 
   return (
-    <div className="Container">
-      <div className="Register-Container">
+    <div className="Register-Container">
+      <div className="Form-Container">
+        <h1>Register</h1>
+
         <form onSubmit={handleSubmit}>
           <div className="input-group">
             <label> First Name:</label>
