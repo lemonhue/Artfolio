@@ -9,7 +9,7 @@ function Home() {
         <h1>I DRAW</h1>
       </div>
 
-      <div className="Home-Background"></div>
+      <div className="Home-Background-Gradient"></div>
     </div>
   );
 }
