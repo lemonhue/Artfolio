@@ -28,9 +28,9 @@
     position: fixed;
     background: linear-gradient(
       180deg,
-      rgb(12, 12, 12) 0%,
+      rgba(12, 12, 12, 0.4) 0%,
       rgba(87, 199, 133, 0) 50%,
-      rgb(12, 12, 12) 100%
+      rgba(12, 12, 12, 0.4) 100%
     );
   }
 }
