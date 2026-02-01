@@ -6,11 +6,9 @@ const cors = require("cors");
 const app = express();
 const PORT = process.env.PORT || 10000;
 const DB_STRING = process.env.DB_STRING;
-const userRoutes = require("./routes/User");
-const cardRoutes = require("./routes/Card");
-const categoryRoutes = require("./routes/Category");
-const subcategoryRoutes = require("./routes/Subcategory");
-const aboutRoutes = require("./routes/About");
+const authRoutes = require("./routes/authRoutes");
+const cardRoutes = require("./routes/cardRoutes");
+const aboutRoutes = require("./routes/aboutRoutes");
 const multer = require("multer");
 const session = require("express-session");
 const passport = require("passport");
@@ -53,7 +51,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use("/user", userRoutes);
+app.use("/auth", authRoutes);
 app.use("/card", cardRoutes);
 app.use("/about", aboutRoutes);
 
